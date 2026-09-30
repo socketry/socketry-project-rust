@@ -1,5 +1,10 @@
 # Releases
 
+## v0.2.0
+
+- Move the shared project tasks to `bake` 0.17 and include standard Rust test tasks.
+- Document standard local, downstream, and publishing workflows.
+
 ## v0.1.1
 
 - Add a reusable Pull Requests guide to the packaged agent context.
