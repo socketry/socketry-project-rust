@@ -586,11 +586,26 @@ dependencies = [
 ]
 
 [[package]]
+name = "socketry-project"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "eae9a922ad826ce65dd497fbf859d5f98a8014cebb0ade09deda1113b0b21420"
+dependencies = [
+ "bake",
+ "bake-agent-context",
+ "bake-cargo",
+ "bake-license",
+ "bake-readme",
+ "bake-releases",
+ "bake-test-rust",
+]
+
+[[package]]
 name = "socketry-project-bake"
 version = "0.0.0"
 dependencies = [
  "bake",
- "socketry-project",
+ "socketry-project 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
