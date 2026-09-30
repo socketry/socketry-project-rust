@@ -1,6 +1,8 @@
 # Releases
 
-## Unreleased
+## v0.1.1
+
+- Add a reusable Pull Requests guide to the packaged agent context.
 
 ## v0.1.0
 

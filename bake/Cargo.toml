@@ -6,4 +6,4 @@ publish = false
 
 [dependencies]
 bake = { package = "socketry-bake", version = "0.2.1" }
-socketry-project = { version = "0.1.0", path = ".." }
+socketry-project = "0.1.0"

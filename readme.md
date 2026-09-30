@@ -72,6 +72,10 @@ organizing context for a project.
 <!-- bake-readme:releases:start -->
 See [releases.md](releases.md) for the full release history.
 
+### v0.1.1
+
+- Add a reusable Pull Requests guide to the packaged agent context.
+
 ### v0.1.0
 
 - Establish shared conventions and standard Bake tasks for Socketry Rust projects.

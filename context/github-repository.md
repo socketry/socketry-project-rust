@@ -44,6 +44,9 @@ text when GitHub already records it as metadata.
   solution. Use GitHub issue type metadata instead of adding a separate change
   type section.
 
+See [Pull Requests](pull-requests.md) for the full title, commit, description,
+testing, and release note conventions.
+
 ## Branch protection
 
 Protect `main` and require pull requests with at least one approval. Allow
