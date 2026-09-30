@@ -1,0 +1,9 @@
+[package]
+name = "socketry-project-bake"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+bake = { package = "socketry-bake", version = "0.2.1", path = "../../bake-rust" }
+socketry-project = { version = "0.1.0", path = ".." }

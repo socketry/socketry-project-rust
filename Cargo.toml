@@ -1,0 +1,30 @@
+[package]
+name = "socketry-project"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+repository = "https://github.com/socketry/socketry-project-rust"
+description = "Shared project conventions and development tasks for Socketry Rust crates"
+readme = "readme.md"
+include = ["src/**", "context/**", "Cargo.toml", "readme.md", "license.md", "releases.md"]
+
+[workspace]
+members = ["bake"]
+resolver = "3"
+
+[workspace.metadata.bake]
+manifest = "bake/Cargo.toml"
+
+[workspace.metadata.bake.release]
+reviewers = ["socketry/managers"]
+
+[lib]
+name = "socketry_project"
+
+[dependencies]
+bake = { package = "socketry-bake", version = "0.2.1", path = "../bake-rust" }
+bake-agent-context = { version = "0.1.0", path = "../bake-agent-context-rust" }
+bake-cargo = { version = "0.2.0", path = "../bake-cargo-rust" }
+bake-license = { version = "0.1.0", path = "../bake-license-rust" }
+bake-readme = { version = "0.1.0", path = "../bake-readme-rust" }
+bake-releases = { version = "0.2.0", path = "../bake-releases-rust" }
