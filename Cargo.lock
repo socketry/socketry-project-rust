@@ -21,9 +21,9 @@ dependencies = [
 
 [[package]]
 name = "bake-cargo"
-version = "0.2.1"
+version = "0.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "39450f1bfe29f1eb32dbfbc7201bfd517dd09948c63626cff2033d7aee1a9b11"
+checksum = "ab2fdca711c62ea76d57a30fc303bd38b1d0f38ece75c3f3cc26f60a4a17a5ca"
 dependencies = [
  "bake-license",
  "bake-releases",
