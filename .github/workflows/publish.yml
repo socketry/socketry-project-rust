@@ -98,9 +98,16 @@ jobs:
               if current < previous:
                   raise SystemExit(f"Workspace version {version} is lower than previous version {prior}")
               if current == previous:
-                  with open(os.environ["GITHUB_OUTPUT"], "a") as output:
-                      output.write("release=false\nversion=\n")
-                  raise SystemExit(0)
+                  tag = f"v{version}"
+                  existing = subprocess.run(
+                      ["git", "rev-list", "-n", "1", f"refs/tags/{tag}"],
+                      capture_output=True,
+                      text=True,
+                  )
+                  if existing.returncode == 0:
+                      with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+                          output.write("release=false\nversion=\n")
+                      raise SystemExit(0)
 
           release_notes = (root / "releases.md").read_text()
           heading = re.compile(rf"^## v{re.escape(version)}(?:\s|$)", re.MULTILINE)
