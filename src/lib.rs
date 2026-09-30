@@ -5,7 +5,6 @@
 //!
 //! Add this crate to a private `bake/` package to link the standard project
 //! tasks and their published agent context into a repository.
-
 use bake::{Context, Result};
 use bake_agent_context as _;
 use bake_cargo as _;
