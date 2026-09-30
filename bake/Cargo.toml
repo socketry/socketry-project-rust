@@ -5,5 +5,5 @@ edition = "2024"
 publish = false
 
 [dependencies]
-bake = { package = "socketry-bake", version = "0.2.1" }
-socketry-project = "0.1.0"
+bake = "0.17.0"
+socketry-project = { version = "0.2.0", path = ".." }

@@ -46,8 +46,8 @@ edition = "2024"
 publish = false
 
 [dependencies]
-bake = { package = "socketry-bake", version = "0.2" }
-socketry-project = "0.1"
+bake = "0.17"
+socketry-project = "0.2"
 ```
 
 Create `bake/src/main.rs`:
@@ -64,7 +64,9 @@ fn main() -> Result<()> {
 The `socketry-project` dependency links the shared tasks into the private Bake
 binary. It also registers `cargo:after_version_bump`, which updates `license.md`,
 `releases.md`, and generated sections in `readme.md` after a version change.
-Keep task tooling out of the published library's dependency list.
+It bundles the standard `test` and `test:external` task providers as well.
+Keep task tooling out of unrelated published libraries. Consumer projects
+should depend on `socketry-project` from their private `bake/` package.
 
 Install the Bake command and the project's agent context:
 
@@ -87,6 +89,27 @@ Generate the Cargo workflow with `cargo:setup:workflow`; follow the
 [Cargo Publishing guide](https://github.com/socketry/bake-cargo-rust/blob/main/context/publishing.md)
 before applying rulesets, environment reviewers, or crates.io trusted
 publishing.
+
+## Standard workflows
+
+Keep `.github/workflows/test.yml` for local workspace tests. When
+`bake-test-rust` is linked, install the Cargo launcher and run
+`cargo bake --locked test` so the optional `test:before` hook also runs.
+Otherwise use `cargo test --workspace --locked`. Add platform or feature
+matrix entries when the project needs them.
+
+List selected downstream projects under
+`[workspace.metadata.bake.test.external]` in the root `Cargo.toml`. Add
+`.github/workflows/external.yml` only when that list is non-empty, and run
+`cargo bake --locked test:external` when `bake-test-rust` is linked. The task
+keeps checkouts under `external/` and applies local workspace crates as Cargo
+patches so downstream tests exercise the source being developed.
+
+Use `cargo:setup:workflow` from `bake-cargo` to generate
+`.github/workflows/publish.yml`. That workflow checks a release candidate on
+pull requests and publishes after merge through the configured `crates-io`
+environment. See the [Rust Testing](testing.md) guide for test workflow details
+and the Cargo Publishing guide for release setup.
 
 ## Work on the project
 

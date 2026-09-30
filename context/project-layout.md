@@ -74,9 +74,11 @@ workflow.
 
 Keep unit tests close to private implementation details and use integration
 tests under `tests/` to check the public interface. Put runnable examples under
-`examples/`. Store project tool configuration in a clearly named configuration
-file or the relevant Cargo metadata; avoid adding a configuration directory
-without a concrete tool that uses it.
+`examples/`. Follow the [Rust Testing](testing.md) guide for local commands,
+the `test.yml` workflow, and optional downstream compatibility tests. Store
+project tool configuration in a clearly named configuration file or the
+relevant Cargo metadata; avoid adding a configuration directory without a
+concrete tool that uses it.
 
 Run checks from the workspace root so all members are covered:
 

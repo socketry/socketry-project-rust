@@ -15,8 +15,8 @@ Add `socketry-project` to the dependencies of your private `bake/` package:
 ```toml
 # bake/Cargo.toml
 [dependencies]
-bake = { package = "socketry-bake", version = "0.2" }
-socketry-project = "0.1"
+bake = "0.17"
+socketry-project = "0.2"
 ```
 
 Link the tasks from `bake/src/main.rs`:
@@ -30,16 +30,17 @@ fn main() -> Result<()> {
 }
 ```
 
-This adds the standard Cargo, release, license, Readme, and agent-context tasks.
-It also registers a version-bump hook that updates the project's standard
-files.
+This adds the standard Cargo, release, license, Readme, agent-context, and
+testing tasks, including `test` and `test:external`. It also registers a
+version-bump hook that updates the project's standard files.
 
 See the [project setup guide](context/project-setup.md) for the minimal Cargo
 configuration and the [project conventions](context/project-conventions.md) for
 repository layout, documentation, and code conventions. The
 [Rust Project Layout](context/project-layout.md) and
 [GitHub Repository Setup](context/github-repository.md) guides provide more
-detail.
+detail. The [Rust Testing](context/testing.md) guide describes the standard
+test workflow and optional downstream compatibility workflow.
 
 ### Agent Context
 
@@ -67,10 +68,23 @@ only this crate's guides, use
 See [Agent Context](context/agent-context.md) for guidance on writing and
 organizing context for a project.
 
+## Releasing
+
+Prepare a release with `cargo bake cargo:version:patch` (or `minor`, `major`,
+or `bump --version X.Y.Z`), then run `cargo bake cargo:release` and open a
+pull request. After review and merge, GitHub Actions publishes the release
+when the configured `crates-io` environment approves it. See the
+[Cargo publishing guide](https://github.com/socketry/bake-cargo-rust/blob/main/context/publishing.md).
+
 ## Releases
 
 <!-- bake-readme:releases:start -->
 See [releases.md](releases.md) for the full release history.
+
+### v0.2.0
+
+- Move the shared project tasks to `bake` 0.17 and include standard Rust test tasks.
+- Document standard local, downstream, and publishing workflows.
 
 ### v0.1.1
 

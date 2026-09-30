@@ -11,6 +11,7 @@ use bake_cargo as _;
 use bake_license as _;
 use bake_readme as _;
 use bake_releases as _;
+use bake_test_rust as _;
 
 /// Refresh the standard project files after a Cargo version bump.
 #[bake::task(name = "cargo:after_version_bump")]
