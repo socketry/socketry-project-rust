@@ -1,5 +1,9 @@
 # Releases
 
+## v0.2.4
+
+- Clarify crate namespaces, descriptive type names, module layout, and test paths.
+
 ## v0.2.3
 
 - Rename the project guides to shorter context filenames and titles.

@@ -54,6 +54,10 @@ the matching GitHub Release from `releases.md`. See the
 <!-- bake-readme:releases:start -->
 See [releases.md](releases.md) for the full release history.
 
+### v0.2.4
+
+- Clarify crate namespaces, descriptive type names, module layout, and test paths.
+
 ### v0.2.3
 
 - Rename the project guides to shorter context filenames and titles.
@@ -62,10 +66,6 @@ See [releases.md](releases.md) for the full release history.
 ### v0.2.2
 
 - Use Bake Cargo's GitHub Release automation in the standard publishing workflow.
-
-### v0.2.1
-
-- Document setup and task linking with `cargo bake --regenerate`.
 <!-- bake-readme:releases:end -->
 
 ## See Also

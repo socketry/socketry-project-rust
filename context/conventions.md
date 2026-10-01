@@ -16,6 +16,24 @@ requirements for that repository.
 - Use Cargo's standard `src/`, `tests/`, and `examples/` directories. Use
   integration tests for public behavior across crate boundaries.
 
+## Crate and module paths
+
+Treat the Cargo crate name as the root namespace. Do not repeat it with a
+same-named top-level module. Keep modules for meaningful domain concepts, and
+re-export the main public API from the crate root when deeper modules only
+organize its implementation. For example, callers can import the
+agent-context API from the root:
+
+```rust
+use bake_agent_context::{AgentIndex, Installer, install_skills, list_skills};
+```
+
+Keep public paths independent of implementation details such as
+`bake_agent_context::agent::context`. Public modules remain useful when they
+name a real part of the API: a crate named `protocol_http` can expose
+`protocol_http::headers::AcceptHeader`, where `headers` identifies the domain
+concept within the crate.
+
 ## Source naming
 
 - Use `snake_case` for modules, source files, functions, methods, and variables.
@@ -25,6 +43,9 @@ requirements for that repository.
   `HtmlRenderer`, `HttpClient`, or `UrlParser`. Keep filenames lowercase
   `snake_case`, such as `html_renderer.rs`, `http_client.rs`, and
   `url_parser.rs`.
+- Make public type and trait names fully descriptive; include the kind of thing
+  being named instead of relying on the module path to supply it. For example,
+  use `io_stream::BufferedStream` rather than `io_stream::Buffered`.
 - Prefer clear, consistent names. Avoid abbreviations unless they are an
   established domain initialism or required by an external API.
 - Give each primary public struct, enum, or trait its own source file, named

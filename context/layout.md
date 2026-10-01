@@ -102,8 +102,12 @@ suite grows, move it into that module's directory; for example,
 implementation details without exposing them as public API.
 
 Put integration tests under `tests/` and use them to check the public crate
-interface. Group multi-file suites by subsystem, with `main.rs` as the test
-target root and sibling files as test modules:
+interface. Mirror the local source module path under `tests/`, starting below
+`src/`. Integration tests use the crate name in Rust imports; test directory
+names mirror local modules and omit the crate identifier. For example, tests
+for `src/parser/inline_parser.rs` belong in a parser test suite. Group
+multi-file suites by subsystem, with `main.rs` as the test target root and
+sibling files as test modules:
 
 ```text
 tests/
