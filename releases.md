@@ -1,6 +1,6 @@
 # Releases
 
-## Unreleased
+## v0.2.5
 
 - Distribute repository setup, GitHub setup, and pull request guidance as
   installable skills.

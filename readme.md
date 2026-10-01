@@ -58,6 +58,12 @@ the matching GitHub Release from `releases.md`. See the
 <!-- bake-readme:releases:start -->
 See [releases.md](releases.md) for the full release history.
 
+### v0.2.5
+
+- Distribute repository setup, GitHub setup, and pull request guidance as
+  installable skills.
+- Provide shared Agent Context guidance through `bake-agent-context`.
+
 ### v0.2.4
 
 - Clarify crate namespaces, descriptive type names, module layout, and test paths.
@@ -66,10 +72,6 @@ See [releases.md](releases.md) for the full release history.
 
 - Rename the project guides to shorter context filenames and titles.
 - Clarify source, test, naming, and coverage conventions.
-
-### v0.2.2
-
-- Use Bake Cargo's GitHub Release automation in the standard publishing workflow.
 <!-- bake-readme:releases:end -->
 
 ## See Also
