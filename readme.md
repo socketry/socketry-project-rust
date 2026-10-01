@@ -10,25 +10,23 @@ release process without repeating task wiring in every repository.
 
 ## Usage
 
-Add `socketry-project` to the dependencies of your private `bake/` package:
+Install the launcher and create the private task package:
+
+```sh
+cargo install socketry-cargo-bake --locked
+cargo bake --regenerate
+```
+
+Add this dependency under the existing `[dependencies]` table in
+`bake/Cargo.toml`:
 
 ```toml
-# bake/Cargo.toml
-[dependencies]
-bake = "0.17"
 socketry-project = "0.2"
 ```
 
-Link the tasks from `bake/src/main.rs`:
-
-```rust,ignore
-use bake::{Registry, Result};
-use socketry_project as _;
-
-fn main() -> Result<()> {
-    Registry::discover()?.run()
-}
-```
+Then run `cargo bake --regenerate` again to link the dependency's tasks. The
+command keeps generated links separate from task source, so no manual import in
+`main.rs` is needed. Run `cargo bake --list` to see the available tasks.
 
 This adds the standard Cargo, release, license, Readme, agent-context, and
 testing tasks, including `test` and `test:external`. It also registers a
@@ -41,32 +39,6 @@ repository layout, documentation, and code conventions. The
 [GitHub Repository Setup](context/github-repository.md) guides provide more
 detail. The [Rust Testing](context/testing.md) guide describes the standard
 test workflow and optional downstream compatibility workflow.
-
-### Agent Context
-
-Install Bake once, then install all context documents provided by the resolved
-Cargo dependencies:
-
-```sh
-cargo install socketry-cargo-bake --locked
-cargo bake agent:context:install
-```
-
-The command copies every dependency's `context/` guides into
-`.agents/context/` and updates `agents.md` with links to those guides. Read
-`agents.md`, then open the relevant context files before continuing work. This
-crate provides Socketry project guidance, while its Bake dependencies provide
-focused guidance for Cargo publishing, licenses, Readmes, releases, and agent
-context. The no-argument install command discovers context from all resolved
-dependency crates used by the workspace.
-
-The generated `.agents/context/` directory is ignored by Git and can be
-refreshed by running the install task again after dependency updates. To install
-only this crate's guides, use
-`cargo bake agent:context:install --package socketry-project`.
-
-See [Agent Context](context/agent-context.md) for guidance on writing and
-organizing context for a project.
 
 ## Releasing
 
@@ -96,10 +68,10 @@ See [releases.md](releases.md) for the full release history.
 - Document project layout, GitHub setup, and agent context installation.
 <!-- bake-readme:releases:end -->
 
-## See Also
-
-- [socketry-project](https://github.com/socketry/socketry-project-rust) — Shared project conventions and development tasks for Socketry Rust crates <!-- bake-readme:package -->
-
 ## Contributing
 
 Please open an issue or pull request on [GitHub](https://github.com/socketry/socketry-project-rust).
+
+### Agent Context
+
+Before contributing, read `agents.md` and the relevant context files it links. If `agents.md` is missing or out of date, run `cargo bake agent:context:install` to install context from dependencies and update the index. See [Agent Context](context/agent-context.md) for guidance on writing and organizing context for a project.

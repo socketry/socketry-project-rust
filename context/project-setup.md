@@ -21,57 +21,45 @@ member.
 
 ## Add shared project tasks
 
-In the root `Cargo.toml`, add the private Bake member and release reviewers:
+Install the Cargo launcher and bootstrap the private task package:
+
+```sh
+cargo install socketry-cargo-bake --locked
+cargo bake --regenerate
+```
+
+The command creates `bake/`, adds it to the Cargo workspace, and writes a
+minimal binary. Add this dependency under the existing `[dependencies]` table in
+`bake/Cargo.toml`:
 
 ```toml
-[workspace]
-members = ["bake"]
-resolver = "3"
+socketry-project = "0.2"
+```
 
-[workspace.metadata.bake]
-manifest = "bake/Cargo.toml"
+Run regeneration again to link its task registrations:
 
+```sh
+cargo bake --regenerate
+```
+
+Set release reviewers in the root `Cargo.toml`:
+
+```toml
 [workspace.metadata.bake.release]
 reviewers = ["socketry/managers"]
 ```
 
-Create `bake/Cargo.toml` with `publish = false`, then add the shared task crates
-as dependencies there, rather than to the library package:
-
-```toml
-[package]
-name = "project-bake"
-version = "0.0.0"
-edition = "2024"
-publish = false
-
-[dependencies]
-bake = "0.17"
-socketry-project = "0.2"
-```
-
-Create `bake/src/main.rs`:
-
-```rust,ignore
-use bake::{Registry, Result};
-use socketry_project as _;
-
-fn main() -> Result<()> {
-    Registry::discover()?.run()
-}
-```
-
-The `socketry-project` dependency links the shared tasks into the private Bake
-binary. It also registers `cargo:after_version_bump`, which updates `license.md`,
-`releases.md`, and generated sections in `readme.md` after a version change.
+The `socketry-project` dependency makes the shared tasks available to the
+private Bake binary. It also registers `cargo:after_version_bump`, which updates
+`license.md`, `releases.md`, and generated sections in `readme.md` after a
+version change.
 It bundles the standard `test` and `test:external` task providers as well.
 Keep task tooling out of unrelated published libraries. Consumer projects
 should depend on `socketry-project` from their private `bake/` package.
 
-Install the Bake command and the project's agent context:
+Install the project's agent context:
 
 ```sh
-cargo install socketry-cargo-bake --locked
 cargo bake agent:context:install
 ```
 

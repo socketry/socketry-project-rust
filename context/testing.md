@@ -4,16 +4,15 @@ Use Cargo's built-in test command for Rust tests. Keep the standard workflow in
 `.github/workflows/test.yml`, separate from release publication.
 
 For the shared Bake interface, add `bake-test-rust` to the private `bake/`
-package and link it from `bake/src/main.rs`:
+package and run `cargo bake --regenerate` to link its task registration:
 
 ```toml
 [dependencies]
 bake-test-rust = "0.1"
 ```
 
-```rust,ignore
-use bake_test_rust as _;
-```
+Regeneration updates the generated dependency links; no manual source import is
+needed.
 
 ## Run tests locally
 
