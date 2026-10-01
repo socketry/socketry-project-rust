@@ -1,4 +1,4 @@
-# Rust Project Layout
+# Rust Repository Layout
 
 Use Cargo's standard structure so contributors can find package code, tests,
 examples, and project documentation quickly. Add directories as the project
@@ -25,8 +25,30 @@ project/
 The root `Cargo.toml` defines the public package and, when needed, the Cargo
 workspace. Put library implementation under `src/`; use `tests/` for tests of
 the public crate interface and `examples/` for runnable usage examples. Follow
-Rust naming conventions for source files and avoid abbreviations unless an
-established Rust API requires them.
+the [Socketry Rust naming conventions](conventions.md#source-naming)
+for source files and Rust items.
+
+## Source modules and files
+
+Organize code by subsystem, using directories to make the module tree visible.
+Use the modern file-plus-directory layout: a module with child modules has a
+same-named source file and directory. For example, `src/parser.rs` defines the
+`parser` module and declares children whose files live under `src/parser/`:
+
+```text
+src/
+├── lib.rs
+├── parser.rs
+└── parser/
+    ├── block_parser.rs
+    └── inline_parser.rs
+```
+
+Declare each source module with `mod` in its parent. Keep module names and
+directory names aligned; avoid `mod.rs` for new modules. For each primary
+public struct, enum, or trait, use a source file named after the item in
+`snake_case`—for example, define `HTMLRenderer` in `html_renderer.rs`. Small,
+closely related helper types can share that file.
 
 Use separate repositories for packages with independent versions or release
 histories. Packages in one workspace should share a version and a release
@@ -70,15 +92,39 @@ that generated directory and refresh it from its source package when needed.
 See [Agent Context](agent-context.md) for the distinction and installation
 workflow.
 
-## Tests and configuration
+## Test layout
 
-Keep unit tests close to private implementation details and use integration
-tests under `tests/` to check the public interface. Put runnable examples under
-`examples/`. Follow the [Rust Testing](testing.md) guide for local commands,
-the `test.yml` workflow, and optional downstream compatibility tests. Store
-project tool configuration in a clearly named configuration file or the
-relevant Cargo metadata; avoid adding a configuration directory without a
-concrete tool that uses it.
+Mirror the source organization in tests. Keep unit tests within the module they
+exercise, using an inline `#[cfg(test)] mod tests` for small suites. When a
+suite grows, move it into that module's directory; for example,
+`src/parser/inline_parser.rs` can declare tests from
+`src/parser/inline_parser/tests.rs`. This keeps tests able to access private
+implementation details without exposing them as public API.
+
+Put integration tests under `tests/` and use them to check the public crate
+interface. Group multi-file suites by subsystem, with `main.rs` as the test
+target root and sibling files as test modules:
+
+```text
+tests/
+└── parser/
+    ├── main.rs
+    ├── block_parser.rs
+    └── inline_parser.rs
+```
+
+Declare the child modules from `main.rs`; Cargo discovers the target root and
+the declared modules organize its tests. See the [Cargo integration test
+layout](https://doc.rust-lang.org/cargo/reference/cargo-targets.html#integration-tests).
+Integration tests can use the public crate API. Follow the [Rust Testing](testing.md)
+guide for local commands, the `test.yml` workflow, and optional downstream
+compatibility tests.
+
+Put runnable examples under `examples/`. Store project tool configuration in a
+clearly named configuration file or the relevant Cargo metadata; avoid adding
+a configuration directory without a concrete tool that uses it.
+
+## Workspace checks
 
 Run checks from the workspace root so all members are covered:
 

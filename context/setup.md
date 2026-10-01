@@ -1,4 +1,4 @@
-# Set Up a Socketry Rust Project
+# Set Up a Rust Repository
 
 Use this guide to start a Rust repository with the shared Socketry conventions,
 agent context, and release tasks.
@@ -15,7 +15,7 @@ The repository can use the `-rust` suffix to distinguish it from a related
 project in another language.
 
 Start with the standard Cargo layout and the root files described in
-[Rust Project Layout](project-layout.md). Keep the library's dependencies in
+[Rust Repository Layout](layout.md). Keep the library's dependencies in
 the root package and development automation in a private `bake/` workspace
 member.
 
