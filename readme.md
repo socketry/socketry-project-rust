@@ -10,25 +10,23 @@ release process without repeating task wiring in every repository.
 
 ## Usage
 
-Add `socketry-project` to the dependencies of your private `bake/` package:
+Install the launcher and create the private task package:
+
+```sh
+cargo install socketry-cargo-bake --locked
+cargo bake --regenerate
+```
+
+Add this dependency under the existing `[dependencies]` table in
+`bake/Cargo.toml`:
 
 ```toml
-# bake/Cargo.toml
-[dependencies]
-bake = "0.17"
 socketry-project = "0.2"
 ```
 
-Link the tasks from `bake/src/main.rs`:
-
-```rust,ignore
-use bake::{Registry, Result};
-use socketry_project as _;
-
-fn main() -> Result<()> {
-    Registry::discover()?.run()
-}
-```
+Then run `cargo bake --regenerate` again to link the dependency's tasks. The
+command keeps generated links separate from task source, so no manual import in
+`main.rs` is needed. Run `cargo bake --list` to see the available tasks.
 
 This adds the standard Cargo, release, license, Readme, agent-context, and
 testing tasks, including `test` and `test:external`. It also registers a
@@ -69,10 +67,6 @@ See [releases.md](releases.md) for the full release history.
 - Establish shared conventions and standard Bake tasks for Socketry Rust projects.
 - Document project layout, GitHub setup, and agent context installation.
 <!-- bake-readme:releases:end -->
-
-## See Also
-
-- [socketry-project](https://github.com/socketry/socketry-project-rust) — Shared project conventions and development tasks for Socketry Rust crates <!-- bake-readme:package -->
 
 ## Contributing
 
