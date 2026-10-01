@@ -1,5 +1,9 @@
 # Releases
 
+## v0.2.1
+
+- Document setup and task linking with `cargo bake --regenerate`.
+
 ## v0.2.0
 
 - Move the shared project tasks to `bake` 0.17 and include standard Rust test tasks.
