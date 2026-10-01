@@ -1,5 +1,10 @@
 # Releases
 
+## v0.2.3
+
+- Rename the project guides to shorter context filenames and titles.
+- Clarify source, test, naming, and coverage conventions.
+
 ## v0.2.2
 
 - Use Bake Cargo's GitHub Release automation in the standard publishing workflow.

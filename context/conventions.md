@@ -1,4 +1,4 @@
-# Socketry Rust Project Conventions
+# Socketry Rust Conventions
 
 Use these conventions for Rust repositories in the Socketry organization. A
 project's local `.agents/` files and package-specific documentation can add
@@ -16,10 +16,22 @@ requirements for that repository.
 - Use Cargo's standard `src/`, `tests/`, and `examples/` directories. Use
   integration tests for public behavior across crate boundaries.
 
-## Source and documentation
+## Source naming
 
-- Prefer clear, consistent names and avoid abbreviations in source code unless
-  an external API or established Rust convention requires them.
+- Use `snake_case` for modules, source files, functions, methods, and variables.
+  Use `UpperCamelCase` for structs, enums, traits, and type parameters.
+- Preserve established initialisms in type and trait names: write
+  `HTMLRenderer`, `HTTPClient`, and `URLParser`, rather than
+  `HtmlRenderer`, `HttpClient`, or `UrlParser`. Keep filenames lowercase
+  `snake_case`, such as `html_renderer.rs`, `http_client.rs`, and
+  `url_parser.rs`.
+- Prefer clear, consistent names. Avoid abbreviations unless they are an
+  established domain initialism or required by an external API.
+- Give each primary public struct, enum, or trait its own source file, named
+  after the item using lowercase `snake_case`. Keep small, closely related
+  helper types alongside it when that makes the code easier to understand.
+
+## Source and documentation
 - Keep repository-root Markdown files to lowercase `readme.md`, `license.md`,
   and `releases.md`.
 - Start `license.md` with `# MIT License`.

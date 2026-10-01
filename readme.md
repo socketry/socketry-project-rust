@@ -32,10 +32,10 @@ This adds the standard Cargo, release, license, Readme, agent-context, and
 testing tasks, including `test` and `test:external`. It also registers a
 version-bump hook that updates the project's standard files.
 
-See the [project setup guide](context/project-setup.md) for the minimal Cargo
-configuration and the [project conventions](context/project-conventions.md) for
-repository layout, documentation, and code conventions. The
-[Rust Project Layout](context/project-layout.md) and
+See the [setup guide](context/setup.md) for the minimal Cargo configuration
+and the [conventions](context/conventions.md) for repository layout,
+documentation, and code conventions. The
+[Rust Repository Layout](context/layout.md) and
 [GitHub Repository Setup](context/github-repository.md) guides provide more
 detail. The [Rust Testing](context/testing.md) guide describes the standard
 test workflow and optional downstream compatibility workflow.
@@ -54,6 +54,11 @@ the matching GitHub Release from `releases.md`. See the
 <!-- bake-readme:releases:start -->
 See [releases.md](releases.md) for the full release history.
 
+### v0.2.3
+
+- Rename the project guides to shorter context filenames and titles.
+- Clarify source, test, naming, and coverage conventions.
+
 ### v0.2.2
 
 - Use Bake Cargo's GitHub Release automation in the standard publishing workflow.
@@ -61,11 +66,6 @@ See [releases.md](releases.md) for the full release history.
 ### v0.2.1
 
 - Document setup and task linking with `cargo bake --regenerate`.
-
-### v0.2.0
-
-- Move the shared project tasks to `bake` 0.17 and include standard Rust test tasks.
-- Document standard local, downstream, and publishing workflows.
 <!-- bake-readme:releases:end -->
 
 ## See Also
