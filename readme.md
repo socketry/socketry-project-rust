@@ -32,13 +32,17 @@ This adds the standard Cargo, release, license, Readme, agent-context, and
 testing tasks, including `test` and `test:external`. It also registers a
 version-bump hook that updates the project's standard files.
 
-See the [setup guide](context/setup.md) for the minimal Cargo configuration
-and the [conventions](context/conventions.md) for repository layout,
-documentation, and code conventions. The
+Install the context and skills provided by dependencies with
+`cargo bake agent:context:install`. This updates `agents.md` and installs the
+`socketry-project-setup`, `socketry-project-github-repository`, and
+`socketry-project-pull-requests` skills under `.agents/skills/`.
+
+See the [repository setup skill](context/setup.md) for the minimal Cargo
+configuration and the [conventions](context/conventions.md) for repository
+layout, documentation, and code conventions. The
 [Rust Repository Layout](context/layout.md) and
-[GitHub Repository Setup](context/github-repository.md) guides provide more
-detail. The [Rust Testing](context/testing.md) guide describes the standard
-test workflow and optional downstream compatibility workflow.
+[Rust Testing](context/testing.md) guides provide more detail on source
+organization and test workflows.
 
 ## Releasing
 
@@ -78,4 +82,10 @@ Please open an issue or pull request on [GitHub](https://github.com/socketry/soc
 
 ### Agent Context
 
-Before contributing, read `agents.md` and the relevant context files it links. If `agents.md` is missing or out of date, run `cargo bake agent:context:install` to install context from dependencies and update the index. See [Agent Context](context/agent-context.md) for guidance on writing and organizing context for a project.
+Before contributing, read `agents.md`, the relevant context files it links, and
+any applicable skills under `.agents/skills/`. If `agents.md` or installed
+skills are missing or out of date, run `cargo bake agent:context:install` to
+refresh context and skills from dependencies. See the [Agent Context guide]
+for guidance on organizing package context and repository-only instructions.
+
+[Agent Context guide]: https://github.com/socketry/bake-agent-context-rust/blob/main/context/agent-context.md

@@ -1,5 +1,11 @@
 # Releases
 
+## Unreleased
+
+- Distribute repository setup, GitHub setup, and pull request guidance as
+  installable skills.
+- Provide shared Agent Context guidance through `bake-agent-context`.
+
 ## v0.2.4
 
 - Clarify crate namespaces, descriptive type names, module layout, and test paths.
