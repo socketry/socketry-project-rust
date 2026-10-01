@@ -45,13 +45,18 @@ test workflow and optional downstream compatibility workflow.
 Prepare a release with `cargo bake cargo:version:patch` (or `minor`, `major`,
 or `bump --version X.Y.Z`), then run `cargo bake cargo:release` and open a
 pull request. After review and merge, GitHub Actions publishes the release
-when the configured `crates-io` environment approves it. See the
+when the configured `crates-io` environment approves it, then creates or updates
+the matching GitHub Release from `releases.md`. See the
 [Cargo publishing guide](https://github.com/socketry/bake-cargo-rust/blob/main/context/publishing.md).
 
 ## Releases
 
 <!-- bake-readme:releases:start -->
 See [releases.md](releases.md) for the full release history.
+
+### v0.2.2
+
+- Use Bake Cargo's GitHub Release automation in the standard publishing workflow.
 
 ### v0.2.1
 
@@ -61,11 +66,11 @@ See [releases.md](releases.md) for the full release history.
 
 - Move the shared project tasks to `bake` 0.17 and include standard Rust test tasks.
 - Document standard local, downstream, and publishing workflows.
-
-### v0.1.1
-
-- Add a reusable Pull Requests guide to the packaged agent context.
 <!-- bake-readme:releases:end -->
+
+## See Also
+
+- [socketry-project](https://github.com/socketry/socketry-project-rust) — Shared project conventions and development tasks for Socketry Rust crates <!-- bake-readme:package -->
 
 ## Contributing
 

@@ -95,9 +95,11 @@ patches so downstream tests exercise the source being developed.
 
 Use `cargo:setup:workflow` from `bake-cargo` to generate
 `.github/workflows/publish.yml`. That workflow checks a release candidate on
-pull requests and publishes after merge through the configured `crates-io`
-environment. See the [Rust Testing](testing.md) guide for test workflow details
-and the Cargo Publishing guide for release setup.
+pull requests, publishes after merge through the configured `crates-io`
+environment, and then creates or updates the matching GitHub Release from
+`releases.md`. See the [Cargo Publishing guide](https://github.com/socketry/bake-cargo-rust/blob/main/context/publishing.md)
+for trusted publishing and repository setup. See the [Rust Testing](testing.md)
+guide for test workflow details and optional downstream compatibility workflow.
 
 ## Work on the project
 

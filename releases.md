@@ -1,5 +1,9 @@
 # Releases
 
+## v0.2.2
+
+- Use Bake Cargo's GitHub Release automation in the standard publishing workflow.
+
 ## v0.2.1
 
 - Document setup and task linking with `cargo bake --regenerate`.

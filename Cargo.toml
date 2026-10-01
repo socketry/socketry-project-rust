@@ -1,6 +1,6 @@
 [package]
 name = "socketry-project"
-version = "0.2.1"
+version = "0.2.2"
 edition = "2024"
 license = "MIT"
 repository = "https://github.com/socketry/socketry-project-rust"
@@ -24,7 +24,7 @@ name = "socketry_project"
 [dependencies]
 bake = "0.17.0"
 bake-agent-context = { version = "0.1.1" }
-bake-cargo = { version = "0.2.3" }
+bake-cargo = { version = "0.2.4" }
 bake-license = { version = "0.1.1" }
 bake-readme = { version = "0.1.1" }
 bake-releases = { version = "0.2.1" }
