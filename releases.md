@@ -3,7 +3,8 @@
 ## Unreleased
 
 - Add a testing skill that sets the 100% line-coverage expectation and directs
-  agents to `bake-test-rust` for canonical workflows and task details.
+  agents to review uncovered code for semantic defects and use `bake-test-rust`
+  for canonical workflows and task details.
 
 ## v0.3.0
 

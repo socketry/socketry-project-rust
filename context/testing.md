@@ -13,6 +13,9 @@ verified by tests.
 - Add tests that exercise the changed behavior and relevant regression cases.
 - Require 100% line coverage for supported target and feature configurations.
   Use the coverage report to find and cover every executable source line.
+- Treat uncovered code as an opportunity to review semantics. Check that its
+  behavior is correct, and fix defects rather than writing tests that codify
+  accidental behavior.
 - Run coverage on each supported target or configuration that compiles distinct
   platform-specific code.
 - Consider external compatibility tests when a change could affect downstream
