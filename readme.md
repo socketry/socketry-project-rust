@@ -32,12 +32,6 @@ This adds the standard Cargo, release, license, Readme, agent-context, and
 testing tasks, including `test` and `test:external`. It also registers a
 version-bump hook that updates the project's standard files.
 
-Install dependency context and skills with `cargo bake agent:context:install`.
-This writes a generated index at `.agents/context/index.md`, leaves the
-repository owner's `agents.md` untouched, and installs the
-`socketry-project-setup`, `socketry-project-github-repository`, and
-`socketry-project-pull-requests` skills under `.agents/skills/`.
-
 See the [repository setup skill](context/setup.md) for the minimal Cargo
 configuration and the [conventions](context/conventions.md) for repository
 layout, documentation, and code conventions. The
@@ -92,11 +86,9 @@ Please open an issue or pull request on [GitHub](https://github.com/socketry/soc
 
 ### Agent Context
 
-Before contributing, follow `agents.md` if present, then read the relevant
-context files linked from `.agents/context/index.md` and applicable skills
-under `.agents/skills/`. If the index or installed skills are missing or out
-of date, run `cargo bake agent:context:install` to refresh context and skills
-from dependencies. See the [Agent Context guide] for guidance on organizing
-package context and repository-only instructions.
+Run `cargo bake agent:context:install` to install shared context and skills.
+Read `.agents/context/index.md` to find relevant guides, follow `agents.md` if
+present, and apply skills under `.agents/skills/`. See the [Agent Context guide]
+for guidance on organizing package context and repository-only instructions.
 
 [Agent Context guide]: https://github.com/socketry/bake-agent-context-rust/blob/main/context/agent-context.md

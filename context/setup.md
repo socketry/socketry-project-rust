@@ -62,22 +62,13 @@ It bundles the standard `test` and `test:external` task providers as well.
 Keep task tooling out of unrelated published libraries. Consumer projects
 should depend on `socketry-project` from their private `bake/` package.
 
-Install the project's agent context:
+## Agent context
 
-```sh
-cargo bake agent:context:install
-```
-
-This installs ordinary context guides under `.agents/context/`, writes a
-generated index to `.agents/context/index.md`, and installs dependency-provided
-skills under `.agents/skills/`. It leaves the repository owner's `agents.md`
-untouched. Read the generated index and inspect applicable skills. Generated
-dependency context, the skill ownership registry, and dependency-provided skill
-directories are excluded locally through `.git/info/exclude`; project-owned
-skills remain trackable under `.agents/skills/`.
-Add `--package socketry-project` to install only this crate's context and
-skills. See the Agent Context guide provided by `bake-agent-context` for how to
-organize shared and project-only guidance.
+Follow the [Agent Context section in `readme.md`](../readme.md#agent-context)
+to install and discover shared context and skills. Follow
+[Conventions](conventions.md#source-and-documentation) for where to keep
+package guidance and project-only instructions. The `bake-agent-context`
+guide documents installer behavior and options.
 
 ## Set up GitHub
 
