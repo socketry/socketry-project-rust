@@ -39,6 +39,23 @@ cargo clippy --workspace --all-targets --locked -- -D warnings
 
 ## Coverage
 
+This repository's test workflow requires 100% line coverage for compiled
+workspace targets. Install `cargo-llvm-cov` and the matching Rust LLVM tools,
+then run the same check locally:
+
+```sh
+rustup component add llvm-tools-preview --toolchain stable
+rustup run stable cargo install cargo-llvm-cov --locked
+rustup run stable cargo llvm-cov --workspace --all-targets --locked --fail-under-lines 100 --show-missing-lines
+```
+
+The regular `cargo bake --locked test` command also runs documentation tests.
+`cargo llvm-cov --all-targets` runs the unit, integration, and other compiled
+test targets under instrumentation; documentation tests are not included in
+its coverage report. The GitHub workflow runs the Bake test task before the
+coverage command so the optional `test:before` hook and documentation tests
+still run. This repeats compiled test targets to gather coverage.
+
 Use the `test:coverage` task from `bake-test-rust` when a project needs a
 coverage gate. It is available after the lockfile resolves a version that
 includes the task; update `Cargo.lock` before using it with `--locked`. Install
