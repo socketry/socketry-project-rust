@@ -32,3 +32,6 @@ mod tests {
         assert!(names.contains(&"releases:update"));
     }
 }
+
+#[path = "bake_generated_tasks/mod.rs"]
+mod bake_generated_tasks;

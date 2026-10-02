@@ -1,5 +1,10 @@
 # Releases
 
+## Unreleased
+
+- Clarify the committed `agents.md` entrypoint and local Git exclusions for
+  generated dependency context and skills.
+
 ## v0.2.6
 
 - Support `bake-agent-context` 0.2 while retaining compatibility with 0.1.
