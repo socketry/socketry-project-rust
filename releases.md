@@ -1,5 +1,10 @@
 # Releases
 
+## Unreleased
+
+- Add an update skill for auditing and modernizing existing Socketry Rust
+  projects.
+
 ## v0.2.7
 
 - Clarify how context installation uses `.agents/context/index.md` and local

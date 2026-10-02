@@ -1,12 +1,13 @@
 ---
 type: skill
-description: Set up a new or existing Rust repository for a Socketry project, including its Cargo layout, shared Bake tasks, agent context, tests, and GitHub workflows. Use when creating a crate repository or bringing one into the standard project structure.
+description: Bootstrap a Rust repository with Socketry layout, Bake tasks, agent context, tests, and workflows. Use for a new repository or initial setup.
 ---
 
 # Set Up a Rust Repository
 
-Use this skill to start a Rust repository with the shared Socketry conventions,
-agent context, and release tasks.
+Use this skill to bootstrap a new Rust repository or add its initial shared
+Socketry tooling. For an audit of an established repository, use the
+`socketry-project-update` skill.
 
 ## Create the repository
 
