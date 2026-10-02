@@ -661,7 +661,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "eae9a922ad826ce65dd497fbf859d5f98a8014cebb0ade09deda1113b0b21420"
 dependencies = [
  "bake",
- "bake-agent-context 0.2.0",
+ "bake-agent-context 0.1.5",
  "bake-cargo",
  "bake-license",
  "bake-readme",
@@ -674,7 +674,7 @@ name = "socketry-project"
 version = "0.2.6"
 dependencies = [
  "bake",
- "bake-agent-context 0.1.5",
+ "bake-agent-context 0.2.0",
  "bake-cargo",
  "bake-license",
  "bake-readme",

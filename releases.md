@@ -2,8 +2,10 @@
 
 ## Unreleased
 
-- Clarify the committed `agents.md` entrypoint and local Git exclusions for
-  generated dependency context and skills.
+- Clarify how context installation uses `.agents/context/index.md` and local
+  Git exclusions without changing a repository-owned `agents.md`.
+- Express shared task dependencies as minimum versions so compatible updates
+  can be selected by the host project's lockfile.
 
 ## v0.2.6
 

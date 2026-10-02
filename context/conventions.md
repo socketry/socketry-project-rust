@@ -54,18 +54,18 @@ concept within the crate.
 
 ## Source and documentation
 - Keep authored repository-root Markdown files to lowercase `readme.md`,
-  `license.md`, and `releases.md`. Commit the generated lowercase `agents.md`
-  as the agent entrypoint.
+  `license.md`, and `releases.md`. Leave an existing repository-owned
+  `agents.md` under its owner's control.
 - Start `license.md` with `# MIT License`.
 - Keep `readme.md` human-focused: explain the project, its motivation when
   useful, how to use it, recent releases, and how to contribute. Follow the
   `Readme Structure` guide supplied by `bake-readme`.
 - Put public, package-specific agent guidance in `context/`. Keep repository-only
   instructions and project-owned skills directly in `.agents/`. Run
-  `cargo bake agent:context:install` to generate `agents.md` with links to
-  installed context; commit that file so it serves as the agent entrypoint.
-  Bake Agent Context excludes generated `.agents/context/` files, its skills
-  registry, and dependency-installed skills through Git's local
+  `cargo bake agent:context:install` to create `.agents/context/index.md` with
+  links to installed context; it leaves a repository-owned `agents.md`
+  untouched. Bake Agent Context excludes generated `.agents/context/` files,
+  its skills registry, and dependency-installed skills through Git's local
   `.git/info/exclude` file. Do not add these transient paths to `.gitignore`;
   project-owned skills remain trackable.
 - Avoid duplicating Rust-wide guidance from `bake-agent-context`; add project
