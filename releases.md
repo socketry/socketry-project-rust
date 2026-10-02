@@ -1,12 +1,13 @@
 # Releases
 
-## Unreleased
+## v0.2.7
 
 - Clarify how context installation uses `.agents/context/index.md` and local
   Git exclusions without changing a repository-owned `agents.md`.
 - Express shared task dependencies as minimum versions so compatible updates
   can be selected by the host project's lockfile.
 - Require 100% line coverage for workspace targets in GitHub Actions.
+- Use the shared `bake-test-rust` coverage task in the standard workflow.
 - Cover Bake task execution and the version-bump hook's task ordering.
 
 ## v0.2.6

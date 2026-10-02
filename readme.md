@@ -59,6 +59,16 @@ the matching GitHub Release from `releases.md`. See the
 <!-- bake-readme:releases:start -->
 See [releases.md](releases.md) for the full release history.
 
+### v0.2.7
+
+- Clarify how context installation uses `.agents/context/index.md` and local
+  Git exclusions without changing a repository-owned `agents.md`.
+- Express shared task dependencies as minimum versions so compatible updates
+  can be selected by the host project's lockfile.
+- Require 100% line coverage for workspace targets in GitHub Actions.
+- Use the shared `bake-test-rust` coverage task in the standard workflow.
+- Cover Bake task execution and the version-bump hook's task ordering.
+
 ### v0.2.6
 
 - Support `bake-agent-context` 0.2 while retaining compatibility with 0.1.
@@ -70,10 +80,6 @@ See [releases.md](releases.md) for the full release history.
 - Distribute repository setup, GitHub setup, and pull request guidance as
   installable skills.
 - Provide shared Agent Context guidance through `bake-agent-context`.
-
-### v0.2.4
-
-- Clarify crate namespaces, descriptive type names, module layout, and test paths.
 <!-- bake-readme:releases:end -->
 
 ## See Also
