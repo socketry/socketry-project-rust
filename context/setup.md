@@ -68,9 +68,10 @@ Install the project's agent context:
 cargo bake agent:context:install
 ```
 
-This installs ordinary context guides under `.agents/context/`, installs
-dependency-provided skills under `.agents/skills/`, and updates `agents.md`
-with links to ordinary context. Read that index and inspect applicable skills.
+This installs ordinary context guides under `.agents/context/`, writes a
+generated index to `.agents/context/index.md`, and installs dependency-provided
+skills under `.agents/skills/`. It leaves the repository owner's `agents.md`
+untouched. Read the generated index and inspect applicable skills.
 Add `--package socketry-project` to install only this crate's context and
 skills. See the Agent Context guide provided by `bake-agent-context` for how to
 organize shared and project-only guidance.

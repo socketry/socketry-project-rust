@@ -1,5 +1,11 @@
 # Releases
 
+## v0.2.6
+
+- Support `bake-agent-context` 0.2 while retaining compatibility with 0.1.
+- Keep the generated context index under `.agents/context/` without modifying
+  the repository owner's `agents.md`.
+
 ## v0.2.5
 
 - Distribute repository setup, GitHub setup, and pull request guidance as
