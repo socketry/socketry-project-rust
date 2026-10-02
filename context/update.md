@@ -25,6 +25,9 @@ initial setup steps.
 Review the repository's Cargo manifests, source and test layout, standard root
 files, Bake package, agent context, and GitHub workflows. Compare them with the
 current guidance in `socketry-project` and the relevant shared task packages.
+Compare semantics, layout, and naming with related Socketry packages. Reuse
+patterns that fit; when this package establishes a new pattern, document its
+rationale and intended usage in the package context.
 
 Check these areas:
 

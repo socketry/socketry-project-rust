@@ -52,6 +52,16 @@ concept within the crate.
   after the item using lowercase `snake_case`. Keep small, closely related
   helper types alongside it when that makes the code easier to understand.
 
+## Consistency across packages
+
+Before introducing a new semantic, layout, or naming pattern, check how related
+Socketry packages handle the same concern. Reuse an established pattern when it
+fits the package's purpose. When a package establishes or changes a pattern,
+document the rationale and intended usage in that package's context so later
+work has a reference. Preserve differences that reflect real domain needs;
+consistency should make related packages easier to understand, not flatten
+their APIs into one shape.
+
 ## Source and documentation
 - Keep authored repository-root Markdown files to lowercase `readme.md`,
   `license.md`, and `releases.md`.

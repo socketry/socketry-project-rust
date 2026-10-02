@@ -1,5 +1,13 @@
 # Releases
 
+## Unreleased
+
+- Add a testing skill that sets the 100% line-coverage expectation and directs
+  agents to review uncovered code for semantic defects and use `bake-test-rust`
+  for canonical workflows and task details.
+- Document how to maintain consistency across Socketry packages and record new
+  semantic, layout, and naming patterns in the package that establishes them.
+
 ## v0.3.0
 
 - Add an update skill for auditing and modernizing existing Socketry Rust
