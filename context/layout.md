@@ -89,8 +89,8 @@ Put reusable, package-specific guidance in the tracked `context/` directory.
 Put repository-only agent instructions and skills in `.agents/`. Bake Agent
 Context installs generated dependency context under `.agents/context/`; ignore
 that generated directory and refresh it from its source package when needed.
-See [Agent Context](agent-context.md) for the distinction and installation
-workflow.
+See the [Agent Context guide](https://github.com/socketry/bake-agent-context-rust/blob/main/context/agent-context.md)
+for the distinction and installation workflow.
 
 ## Test layout
 

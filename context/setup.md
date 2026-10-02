@@ -1,6 +1,11 @@
+---
+type: skill
+description: Set up a new or existing Rust repository for a Socketry project, including its Cargo layout, shared Bake tasks, agent context, tests, and GitHub workflows. Use when creating a crate repository or bringing one into the standard project structure.
+---
+
 # Set Up a Rust Repository
 
-Use this guide to start a Rust repository with the shared Socketry conventions,
+Use this skill to start a Rust repository with the shared Socketry conventions,
 agent context, and release tasks.
 
 ## Create the repository
@@ -14,10 +19,10 @@ namespace, so use a `socketry-` prefix when needed to identify a Socketry crate.
 The repository can use the `-rust` suffix to distinguish it from a related
 project in another language.
 
-Start with the standard Cargo layout and the root files described in
-[Rust Repository Layout](layout.md). Keep the library's dependencies in
-the root package and development automation in a private `bake/` workspace
-member.
+Start with the standard Cargo layout and root files described in the
+Rust Repository Layout context guide provided by `socketry-project`. Keep the
+library's dependencies in the root package and development automation in a
+private `bake/` workspace member.
 
 ## Add shared project tasks
 
@@ -63,16 +68,17 @@ Install the project's agent context:
 cargo bake agent:context:install
 ```
 
-This installs all context guides provided by resolved dependencies under
-`.agents/context/` and updates `agents.md` with links. Read that index, then
-open the guides relevant to the work. Add `--package socketry-project` to
-install only this crate's guides. See [Agent Context](agent-context.md) for how
-to organize and update shared and project-only guidance.
+This installs ordinary context guides under `.agents/context/`, installs
+dependency-provided skills under `.agents/skills/`, and updates `agents.md`
+with links to ordinary context. Read that index and inspect applicable skills.
+Add `--package socketry-project` to install only this crate's context and
+skills. See the Agent Context guide provided by `bake-agent-context` for how to
+organize shared and project-only guidance.
 
 ## Set up GitHub
 
 Configure repository metadata, collaboration features, pull request defaults,
-and branch protection using [GitHub Repository Setup](github-repository.md).
+and branch protection using the `socketry-project-github-repository` skill.
 Generate the Cargo workflow with `cargo:setup:workflow`; follow the
 [Cargo Publishing guide](https://github.com/socketry/bake-cargo-rust/blob/main/context/publishing.md)
 before applying rulesets, environment reviewers, or crates.io trusted
@@ -98,8 +104,9 @@ Use `cargo:setup:workflow` from `bake-cargo` to generate
 pull requests, publishes after merge through the configured `crates-io`
 environment, and then creates or updates the matching GitHub Release from
 `releases.md`. See the [Cargo Publishing guide](https://github.com/socketry/bake-cargo-rust/blob/main/context/publishing.md)
-for trusted publishing and repository setup. See the [Rust Testing](testing.md)
-guide for test workflow details and optional downstream compatibility workflow.
+for trusted publishing and repository setup. See the Rust Testing context
+guide provided by `socketry-project` for test workflow details and optional
+downstream compatibility workflows.
 
 ## Work on the project
 

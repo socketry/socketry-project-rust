@@ -1,3 +1,8 @@
+---
+type: skill
+description: Create or maintain GitHub repository metadata, collaboration features, merge settings, and main-branch protections for Socketry projects. Use when setting up a new repository or auditing its existing settings.
+---
+
 # GitHub Repository Setup
 
 Use these defaults when creating a Socketry repository. Preserve deliberate
@@ -44,8 +49,8 @@ text when GitHub already records it as metadata.
   solution. Use GitHub issue type metadata instead of adding a separate change
   type section.
 
-See [Pull Requests](pull-requests.md) for the full title, commit, description,
-testing, and release note conventions.
+Use the `socketry-project-pull-requests` skill for the full title, commit,
+description, testing, and release note conventions.
 
 ## Branch protection
 
