@@ -1,6 +1,6 @@
 # Releases
 
-## Unreleased
+## v0.3.1
 
 - Add a testing skill that sets the 100% line-coverage expectation and directs
   agents to review uncovered code for semantic defects and use `bake-test-rust`
