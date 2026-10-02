@@ -1,6 +1,6 @@
 # Releases
 
-## Unreleased
+## v0.3.0
 
 - Add an update skill for auditing and modernizing existing Socketry Rust
   projects.

@@ -53,6 +53,11 @@ the matching GitHub Release from `releases.md`. See the
 <!-- bake-readme:releases:start -->
 See [releases.md](releases.md) for the full release history.
 
+### v0.3.0
+
+- Add an update skill for auditing and modernizing existing Socketry Rust
+  projects.
+
 ### v0.2.7
 
 - Clarify how context installation uses `.agents/context/index.md` and local
@@ -68,12 +73,6 @@ See [releases.md](releases.md) for the full release history.
 - Support `bake-agent-context` 0.2 while retaining compatibility with 0.1.
 - Keep the generated context index under `.agents/context/` without modifying
   the repository owner's `agents.md`.
-
-### v0.2.5
-
-- Distribute repository setup, GitHub setup, and pull request guidance as
-  installable skills.
-- Provide shared Agent Context guidance through `bake-agent-context`.
 <!-- bake-readme:releases:end -->
 
 ## See Also
