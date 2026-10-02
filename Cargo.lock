@@ -43,6 +43,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "bake-agent-context"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "20e64f12e18f23cf849ce90865403e82171d1e298391896b22782d60b146aa81"
+dependencies = [
+ "bake",
+ "serde",
+ "serde_json",
+ "serde_yaml_ng",
+ "socketry-markdown",
+]
+
+[[package]]
 name = "bake-cargo"
 version = "0.2.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -648,7 +661,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "eae9a922ad826ce65dd497fbf859d5f98a8014cebb0ade09deda1113b0b21420"
 dependencies = [
  "bake",
- "bake-agent-context",
+ "bake-agent-context 0.2.0",
  "bake-cargo",
  "bake-license",
  "bake-readme",
@@ -661,7 +674,7 @@ name = "socketry-project"
 version = "0.2.6"
 dependencies = [
  "bake",
- "bake-agent-context",
+ "bake-agent-context 0.1.5",
  "bake-cargo",
  "bake-license",
  "bake-readme",
