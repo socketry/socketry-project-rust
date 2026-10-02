@@ -1,5 +1,12 @@
 # Releases
 
+## Unreleased
+
+- Clarify how context installation uses `.agents/context/index.md` and local
+  Git exclusions without changing a repository-owned `agents.md`.
+- Express shared task dependencies as minimum versions so compatible updates
+  can be selected by the host project's lockfile.
+
 ## v0.2.6
 
 - Support `bake-agent-context` 0.2 while retaining compatibility with 0.1.

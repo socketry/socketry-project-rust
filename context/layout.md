@@ -78,18 +78,24 @@ Maintain only these authored Markdown files at the repository root:
 - `releases.md` records user-visible changes and is the source for release
   descriptions.
 
-Keep file names lowercase. Cargo package metadata belongs in `Cargo.toml`.
-Include documentation and agent context in the published crate when downstream
-users benefit from it; use the Cargo `include` field only when you can keep the
-complete package file list accurate.
+Keep file names lowercase. Preserve a repository-owned `agents.md` when one is
+present; project context installation leaves it alone. Cargo package metadata
+belongs in `Cargo.toml`. Include documentation and agent context in the
+published crate when downstream users benefit from it; use the Cargo `include`
+field only when you can keep the complete package file list accurate.
 
 ## Agent guidance
 
 Put reusable, package-specific guidance in the tracked `context/` directory.
-Put repository-only agent instructions and skills in `.agents/`. Bake Agent
-Context installs generated dependency context under `.agents/context/`; ignore
-that generated directory and refresh it from its source package when needed.
-See the [Agent Context guide](https://github.com/socketry/bake-agent-context-rust/blob/main/context/agent-context.md)
+Put repository-only agent instructions and project-owned skills in `.agents/`.
+Run `cargo bake agent:context:install` to create `.agents/context/index.md`
+with links to ordinary context from dependencies. Agents can use this index to
+discover project guidance and inspect applicable skills without the installer
+changing a repository-owned `agents.md`. Bake Agent Context records
+`.agents/context/`, its skills registry, and dependency-installed skill
+directories in the local Git exclude file at `.git/info/exclude`; these
+generated files do not need entries in the project's `.gitignore`.
+Project-owned skills remain trackable. See the [Agent Context guide](https://github.com/socketry/bake-agent-context-rust/blob/main/context/agent-context.md)
 for the distinction and installation workflow.
 
 ## Test layout

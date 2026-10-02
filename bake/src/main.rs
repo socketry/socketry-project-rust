@@ -2,7 +2,6 @@
 // Copyright, 2026, by Samuel Williams.
 
 use bake::Registry;
-use socketry_project as _;
 use std::process::ExitCode;
 
 fn main() -> ExitCode {
@@ -32,3 +31,6 @@ mod tests {
         assert!(names.contains(&"releases:update"));
     }
 }
+
+#[path = "bake_generated_tasks/mod.rs"]
+mod bake_generated_tasks;
