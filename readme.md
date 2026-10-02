@@ -53,6 +53,14 @@ the matching GitHub Release from `releases.md`. See the
 <!-- bake-readme:releases:start -->
 See [releases.md](releases.md) for the full release history.
 
+### v0.3.1
+
+- Add a testing skill that sets the 100% line-coverage expectation and directs
+  agents to review uncovered code for semantic defects and use `bake-test-rust`
+  for canonical workflows and task details.
+- Document how to maintain consistency across Socketry packages and record new
+  semantic, layout, and naming patterns in the package that establishes them.
+
 ### v0.3.0
 
 - Add an update skill for auditing and modernizing existing Socketry Rust
@@ -67,12 +75,6 @@ See [releases.md](releases.md) for the full release history.
 - Require 100% line coverage for workspace targets in GitHub Actions.
 - Use the shared `bake-test-rust` coverage task in the standard workflow.
 - Cover Bake task execution and the version-bump hook's task ordering.
-
-### v0.2.6
-
-- Support `bake-agent-context` 0.2 while retaining compatibility with 0.1.
-- Keep the generated context index under `.agents/context/` without modifying
-  the repository owner's `agents.md`.
 <!-- bake-readme:releases:end -->
 
 ## See Also
