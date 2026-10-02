@@ -1,5 +1,10 @@
 # Releases
 
+## Unreleased
+
+- Add a testing skill that sets the 100% line-coverage expectation and directs
+  agents to `bake-test-rust` for canonical workflows and task details.
+
 ## v0.3.0
 
 - Add an update skill for auditing and modernizing existing Socketry Rust

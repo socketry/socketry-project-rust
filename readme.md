@@ -35,9 +35,9 @@ version-bump hook that updates the project's standard files.
 See the [repository setup skill](context/setup.md) for the minimal Cargo
 configuration and the [conventions](context/conventions.md) for repository
 layout, documentation, and code conventions. The
-[Rust Repository Layout](context/layout.md) and
-[Rust Testing](context/testing.md) guides provide more detail on source
-organization and test workflows.
+[Rust Repository Layout](context/layout.md) explains source organization. The
+testing skill sets expectations and points to `bake-test-rust` for task and
+workflow details.
 
 ## Releasing
 

@@ -87,6 +87,6 @@ Put runnable examples under `examples/`. Store project tool configuration in a
 clearly named configuration file or the relevant Cargo metadata; avoid adding
 a configuration directory without a concrete tool that uses it.
 
-For testing expectations and task details, see [Testing](testing.md) and the
-installed `bake-test-rust` context. Use the [setup skill](setup.md) for
-workflow setup.
+Follow the `socketry-project-testing` skill for testing expectations and
+consult the installed `bake-test-rust` context for task and workflow details.
+Use the [setup skill](setup.md) for workflow setup.
