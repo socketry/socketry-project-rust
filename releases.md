@@ -1,5 +1,10 @@
 # Releases
 
+## v0.3.3
+
+- Point the project update skill at the shared Releasing skill and Bake Cargo
+  task documentation.
+
 ## v0.3.2
 
 - Add a shared Releasing skill and remove links to duplicated Cargo publishing

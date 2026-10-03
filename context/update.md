@@ -45,8 +45,9 @@ Check these areas:
   the current policy and task details.
 - **GitHub workflows:** the standard test and publish workflows, plus external
   testing when downstream projects are configured. Use the GitHub repository
-  skill for repository settings and the `bake-cargo` publishing context for
-  workflow and trusted-publishing details.
+  skill for repository settings and the `socketry-project-releasing` skill for
+  publishing workflow setup. Consult the Bake Cargo Readme for task behavior,
+  workflow generation, and trusted-publishing details.
 
 Classify findings as required baseline changes, optional recommendations, or
 valid project-specific exceptions. Preserve deliberate local architecture and

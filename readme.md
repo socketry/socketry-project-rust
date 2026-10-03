@@ -53,6 +53,11 @@ the matching GitHub Release from `releases.md`. See the shared
 <!-- bake-readme:releases:start -->
 See [releases.md](releases.md) for the full release history.
 
+### v0.3.3
+
+- Point the project update skill at the shared Releasing skill and Bake Cargo
+  task documentation.
+
 ### v0.3.2
 
 - Add a shared Releasing skill and remove links to duplicated Cargo publishing
@@ -66,11 +71,6 @@ See [releases.md](releases.md) for the full release history.
   for canonical workflows and task details.
 - Document how to maintain consistency across Socketry packages and record new
   semantic, layout, and naming patterns in the package that establishes them.
-
-### v0.3.0
-
-- Add an update skill for auditing and modernizing existing Socketry Rust
-  projects.
 <!-- bake-readme:releases:end -->
 
 ## See Also
