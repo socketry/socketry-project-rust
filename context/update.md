@@ -63,7 +63,7 @@ convention.
 - Use `cargo bake test:coverage` for the standard local coverage check. Consult
   `bake-test-rust` for feature, target, and optional downstream test setup.
 - Let `cargo:after_version_bump` refresh standard release files during release
-  preparation. Follow the `bake-cargo` publishing guide for version bumps,
+  preparation. Follow the `socketry-project-releasing` skill for version bumps,
   validation, and the reviewed GitHub release process.
 - Keep changes focused on the identified baseline gaps; do not rewrite valid
   project-specific choices merely to match an example layout.

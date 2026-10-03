@@ -48,8 +48,9 @@ Declare each source module in its parent. Keep module and directory names
 aligned; avoid `mod.rs` for new modules. Follow the [Socketry Rust naming
 conventions](conventions.md#source-naming) for Rust items and source files.
 
-Cargo package metadata belongs in `Cargo.toml`. See the [Cargo Publishing guide](https://github.com/socketry/bake-cargo-rust/blob/main/context/publishing.md)
-for package inclusion and release workflow details.
+Cargo package metadata belongs in `Cargo.toml`. Follow the
+`socketry-project-releasing` skill for the release workflow and consult Bake
+Cargo task documentation for package inclusion details.
 
 ## Root files
 

@@ -1,7 +1,9 @@
 # Releases
 
-## Unreleased
+## v0.3.2
 
+- Add a shared Releasing skill and remove links to duplicated Cargo publishing
+  guidance.
 - Update the setup instructions to use `socketry-project` 0.3.
 
 ## v0.3.1

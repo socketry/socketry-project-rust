@@ -45,13 +45,19 @@ Prepare a release with `cargo bake cargo:version:patch` (or `minor`, `major`,
 or `bump --version X.Y.Z`), then run `cargo bake cargo:release` and open a
 pull request. After review and merge, GitHub Actions publishes the release
 when the configured `crates-io` environment approves it, then creates or updates
-the matching GitHub Release from `releases.md`. See the
-[Cargo publishing guide](https://github.com/socketry/bake-cargo-rust/blob/main/context/publishing.md).
+the matching GitHub Release from `releases.md`. See the shared
+[Releasing skill](context/releasing.md) for the standard release process.
 
 ## Releases
 
 <!-- bake-readme:releases:start -->
 See [releases.md](releases.md) for the full release history.
+
+### v0.3.2
+
+- Add a shared Releasing skill and remove links to duplicated Cargo publishing
+  guidance.
+- Update the setup instructions to use `socketry-project` 0.3.
 
 ### v0.3.1
 
@@ -65,16 +71,6 @@ See [releases.md](releases.md) for the full release history.
 
 - Add an update skill for auditing and modernizing existing Socketry Rust
   projects.
-
-### v0.2.7
-
-- Clarify how context installation uses `.agents/context/index.md` and local
-  Git exclusions without changing a repository-owned `agents.md`.
-- Express shared task dependencies as minimum versions so compatible updates
-  can be selected by the host project's lockfile.
-- Require 100% line coverage for workspace targets in GitHub Actions.
-- Use the shared `bake-test-rust` coverage task in the standard workflow.
-- Cover Bake task execution and the version-bump hook's task ordering.
 <!-- bake-readme:releases:end -->
 
 ## See Also
