@@ -1,5 +1,9 @@
 # Releases
 
+## Unreleased
+
+- Update the setup instructions to use `socketry-project` 0.3.
+
 ## v0.3.1
 
 - Add a testing skill that sets the 100% line-coverage expectation and directs
