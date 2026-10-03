@@ -21,7 +21,7 @@ Add this dependency under the existing `[dependencies]` table in
 `bake/Cargo.toml`:
 
 ```toml
-socketry-project = "0.2"
+socketry-project = "0.3"
 ```
 
 Then run `cargo bake --regenerate` again to link the dependency's tasks. The
