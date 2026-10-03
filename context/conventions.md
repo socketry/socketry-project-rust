@@ -85,6 +85,6 @@ their APIs into one shape.
   of the published library.
 - Use the `cargo:after_version_bump` hook registered by `socketry-project` to
   update `license.md`, `releases.md`, and the generated sections of `readme.md`.
-- Review generated changes before committing a release pull request. The
-  `bake-cargo` publishing guide describes workflow setup, trusted publishing,
-  reviewer settings, and tag creation.
+- Follow the `socketry-project-releasing` skill to prepare and publish a
+  release. It links to Bake Cargo task documentation for workflow setup,
+  trusted publishing, reviewers, and tag creation.

@@ -75,9 +75,9 @@ guide documents installer behavior and options.
 Configure repository metadata, collaboration features, pull request defaults,
 and branch protection using the `socketry-project-github-repository` skill.
 Generate the Cargo workflow with `cargo:setup:workflow`; follow the
-[Cargo Publishing guide](https://github.com/socketry/bake-cargo-rust/blob/main/context/publishing.md)
-before applying rulesets, environment reviewers, or crates.io trusted
-publishing.
+`socketry-project-releasing` skill before applying rulesets, environment
+reviewers, or crates.io trusted publishing. It links to the Bake Cargo Readme
+for task-specific details.
 
 ## Test workflows
 
@@ -90,10 +90,8 @@ Use `cargo:setup:workflow` from `bake-cargo` to generate
 `.github/workflows/publish.yml`. That workflow checks a release candidate on
 pull requests, publishes after merge through the configured `crates-io`
 environment, and then creates or updates the matching GitHub Release from
-`releases.md`. See the [Cargo Publishing guide](https://github.com/socketry/bake-cargo-rust/blob/main/context/publishing.md)
-for trusted publishing and repository setup. Use the
-`socketry-project-testing` skill for testing expectations and the
-`bake-test-rust` context for workflow and task details.
+`releases.md`. Follow the `socketry-project-releasing` skill for the release
+process and `bake-test-rust` context for workflow and task details.
 
 ## Work on the project
 
