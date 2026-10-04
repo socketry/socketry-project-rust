@@ -25,12 +25,12 @@ organize its implementation. For example, callers can import the
 agent-context API from the root:
 
 ```rust
-use bake_agent_context::{AgentIndex, Installer, install_skills, list_skills};
+use bake_agent_context::{ContextIndex, Installer, install_skills, list_skills};
 ```
 
-Keep public paths independent of implementation details such as
-`bake_agent_context::agent::context`. Public modules remain useful when they
-name a real part of the API: a crate named `protocol_http` can expose
+Keep public paths independent of redundant namespace layers such as
+`bake_agent_context::context`. Public modules remain useful when they name a
+real part of the API: a crate named `protocol_http` can expose
 `protocol_http::headers::AcceptHeader`, where `headers` identifies the domain
 concept within the crate.
 
