@@ -37,16 +37,34 @@ request after the task succeeds.
 
 ## Publish through GitHub Actions
 
-The standard `publish.yml` workflow publishes a release after its pull request
-merges to the configured branch and the `crates-io` environment approves the
-deployment. It publishes remaining workspace packages through GitHub OIDC,
-creates the version tag after successful uploads, then creates or updates the
-matching GitHub Release from `releases.md`.
+Generate `.github/workflows/publish.yml` with `cargo bake cargo:setup:workflow`.
+The canonical template is maintained in
+[`bake-cargo-rust/src/publish.yml`](https://github.com/socketry/bake-cargo-rust/blob/main/src/publish.yml).
+Keep repository-specific changes limited to the configured branch and update
+this shared template when the standard workflow changes.
+
+The check job installs the Bake launcher and runs
+`cargo:release:detect --base "$BAKE_BEFORE" --sha "$BAKE_SHA"`. That task
+compares the current workspace version with the base commit, checks the matching
+`releases.md` heading when the version changed, and writes the `release` and
+`version` GitHub outputs. Release candidates then run `cargo:release` before the
+formatting, Clippy, and test checks.
+
+After a merge to the configured branch, the `crates-io` environment gates the
+publish job. `cargo:publish:pending --version "$BAKE_VERSION"` checks which
+workspace packages still need publishing. GitHub OIDC authentication runs only
+when packages are pending. `cargo:release:publish --version "$BAKE_VERSION"
+--sha "$BAKE_SHA"` publishes the remaining packages, then creates and pushes
+the version tag and creates or updates the matching GitHub Release from
+`releases.md` using `cargo:releases:github:release`.
+
+These operations are Bake tasks; the workflow contains no inline Python release
+scripts. The task names in this workflow require `bake-cargo` 0.4.0 or newer in
+the resolved task binary, including its `Cargo.lock`.
 
 After merging, check the workflow result, published package versions, version
 tag, and GitHub Release. If a publish workflow is still waiting for environment
 approval, obtain that approval through the configured reviewer process.
-
 ## Set up publishing
 
 For a new repository, use `cargo bake cargo:setup:workflow` to generate the
