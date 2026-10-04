@@ -1,5 +1,10 @@
 # Releases
 
+## Unreleased
+
+- Document a test-only shim pattern for deterministic coverage of difficult
+  I/O failures.
+
 ## v0.3.3
 
 - Point the project update skill at the shared Releasing skill and Bake Cargo
