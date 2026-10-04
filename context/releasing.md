@@ -59,8 +59,9 @@ the version tag and creates or updates the matching GitHub Release from
 `releases.md` using `cargo:releases:github:release`.
 
 These operations are Bake tasks; the workflow contains no inline Python release
-scripts. The task names in this workflow require `bake-cargo` 0.4.0 or newer in
-the resolved task binary, including its `Cargo.lock`.
+scripts. The task names in this workflow require `bake` 0.18.0 or newer and
+`bake-cargo` 0.4.0 or newer in the resolved task binary, including its
+`Cargo.lock`.
 
 After merging, check the workflow result, published package versions, version
 tag, and GitHub Release. If a publish workflow is still waiting for environment

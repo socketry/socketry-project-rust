@@ -91,8 +91,9 @@ Use `cargo bake cargo:setup:workflow` to generate
 workflow runs `cargo:release:detect` and `cargo:release` for release checks,
 then `cargo:publish:pending` and `cargo:release:publish` after merge through
 the configured `crates-io` environment. The standard workflow is documented in
-the shared Releasing skill; its task binary must resolve `bake-cargo` 0.4.0 or
-newer. Follow the `bake-test-rust` context for test workflow and task details.
+the shared Releasing skill; its task binary must resolve `bake` 0.18.0 and
+`bake-cargo` 0.4.0 or newer. Follow the `bake-test-rust` context for test
+workflow and task details.
 
 ## Work on the project
 
