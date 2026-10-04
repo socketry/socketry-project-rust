@@ -40,6 +40,10 @@ deterministic:
 - Assert observable behavior, such as the returned error and whether changes
   were rolled back or cleaned up.
 
+Filesystem error kinds and path resolution vary by operating system. Inject
+failures for portable error-path tests; use platform-gated tests when the
+OS-specific behavior itself is what the test needs to verify.
+
 Keep the shim small and local to the code under test. Do not build a broad fake
 filesystem or add production abstractions solely to satisfy coverage. If many
 call sites need fault injection, reconsider the design and introduce a shared
