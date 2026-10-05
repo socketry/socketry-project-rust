@@ -53,6 +53,12 @@ the matching GitHub Release from `releases.md`. See the shared
 <!-- bake-readme:releases:start -->
 See [releases.md](releases.md) for the full release history.
 
+### v0.3.4
+
+- Require Bake 0.18.0 and Bake Cargo 0.4.0 for shared task registration.
+- Document a test-only shim pattern for deterministic coverage of difficult
+  I/O failures.
+
 ### v0.3.3
 
 - Point the project update skill at the shared Releasing skill and Bake Cargo
@@ -63,19 +69,7 @@ See [releases.md](releases.md) for the full release history.
 - Add a shared Releasing skill and remove links to duplicated Cargo publishing
   guidance.
 - Update the setup instructions to use `socketry-project` 0.3.
-
-### v0.3.1
-
-- Add a testing skill that sets the 100% line-coverage expectation and directs
-  agents to review uncovered code for semantic defects and use `bake-test-rust`
-  for canonical workflows and task details.
-- Document how to maintain consistency across Socketry packages and record new
-  semantic, layout, and naming patterns in the package that establishes them.
 <!-- bake-readme:releases:end -->
-
-## See Also
-
-- [socketry-project](https://github.com/socketry/socketry-project-rust) — Shared project conventions and development tasks for Socketry Rust crates <!-- bake-readme:package -->
 
 ## Contributing
 

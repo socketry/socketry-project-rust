@@ -1,7 +1,8 @@
 # Releases
 
-## Unreleased
+## v0.3.4
 
+- Require Bake 0.18.0 and Bake Cargo 0.4.0 for shared task registration.
 - Document a test-only shim pattern for deterministic coverage of difficult
   I/O failures.
 
