@@ -1,5 +1,10 @@
 # Releases
 
+## v0.3.5
+
+- Require `bake-test-rust` 0.3.0 or newer for LLVM region coverage and update
+  the shared testing guidance to match.
+
 ## v0.3.4
 
 - Require Bake 0.18.0 and Bake Cargo 0.4.0 for shared task registration.
