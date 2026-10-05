@@ -15,12 +15,10 @@ pub(super) fn normalize(context: &mut Context) -> Result<()> {
 }
 
 fn normalize_paths(context: &mut Context, paths: Vec<PathBuf>) -> Result<()> {
-    let mut owned_arguments = Vec::with_capacity(paths.len() * 2);
-
-    for path in paths {
-        owned_arguments.push("--path".to_owned());
-        owned_arguments.push(path_argument(&path)?);
-    }
+    let owned_arguments: Vec<_> = paths
+        .iter()
+        .map(|path| path_argument(path))
+        .collect::<Result<_>>()?;
 
     let arguments: Vec<_> = owned_arguments.iter().map(String::as_str).collect();
     context.call("markdown:normalize", &arguments)?;

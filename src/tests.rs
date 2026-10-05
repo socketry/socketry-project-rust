@@ -38,7 +38,7 @@ fn update_readme(context: &mut bake::Context, _: &Arguments) -> Result<Value> {
 }
 
 fn normalize_markdown(context: &mut bake::Context, arguments: &Arguments) -> Result<Value> {
-    let paths = arguments.repeated::<std::path::PathBuf>("path")?;
+    let paths = arguments.repeated::<std::path::PathBuf>("paths")?;
     record(context, "markdown:normalize", None)?;
     context.get_mut::<Calls>().unwrap().markdown_paths = paths;
     Ok(Value::Null)
@@ -70,15 +70,34 @@ fn registry() -> Registry {
         )
         .unwrap();
     registry
-        .register(Task::new(
+        .replace(
             "markdown:normalize",
-            "",
-            vec![Parameter::new::<std::path::PathBuf>("path").repeated()],
-            normalize_markdown,
-        ))
+            Task::new(
+                "markdown:normalize",
+                "",
+                vec![Parameter::new::<std::path::PathBuf>("paths").variadic()],
+                normalize_markdown,
+            ),
+        )
         .unwrap();
 
     registry
+}
+
+#[test]
+fn exports_markdown_normalization_with_hyphen_markers() {
+    let directory = tempfile::tempdir().unwrap();
+    let path = directory.path().join("readme.md");
+    std::fs::write(&path, "* first\n* second\n").unwrap();
+
+    let registry = Registry::discover().unwrap();
+    let mut context = registry.context(directory.path());
+    context.call("markdown:normalize", &["readme.md"]).unwrap();
+
+    assert_eq!(
+        std::fs::read_to_string(path).unwrap(),
+        "- first\n- second\n"
+    );
 }
 
 #[test]

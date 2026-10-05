@@ -83,12 +83,12 @@ dependencies = [
 
 [[package]]
 name = "bake-markdown"
-version = "0.2.0"
+version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8eba114380436efdf21b2872d88f5450808cbbdec7947a647f7041ef4efb08a9"
+checksum = "be72df839f4db26a93f2fe0659e57ce7998900b9445b04ba1367d51b4ba38587"
 dependencies = [
  "bake",
- "socketry-markdown 0.2.0",
+ "socketry-markdown 0.3.0",
 ]
 
 [[package]]
@@ -657,9 +657,9 @@ dependencies = [
 
 [[package]]
 name = "socketry-markdown"
-version = "0.2.0"
+version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "37d3a646262edeca60e86e4c4dd493167e74beb03ea75a60b2d5c40e6d6d8c5b"
+checksum = "8c02f802fe678b660dd21a6b6130bc2d0eb3423c24b9f26ebddb46514769e788"
 dependencies = [
  "regex",
  "unicode-id",
@@ -667,12 +667,13 @@ dependencies = [
 
 [[package]]
 name = "socketry-project"
-version = "0.3.5"
+version = "0.3.6"
 dependencies = [
  "bake",
  "bake-agent-context",
  "bake-cargo",
  "bake-license",
+ "bake-markdown",
  "bake-readme",
  "bake-releases",
  "bake-test-rust",

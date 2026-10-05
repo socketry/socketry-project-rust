@@ -1,50 +1,42 @@
 # Releases
 
-## Unreleased
+## v0.3.6
 
 - Normalize standard project Markdown files after version bumps.
+- Fix the version bump hook's invocation of the Markdown normalizer.
+- Include `bake-markdown` 0.3.0 in the shared task set so version bumps use hyphen markers for unordered lists.
 
 ## v0.3.5
 
-- Require `bake-test-rust` 0.3.0 or newer for LLVM region coverage and update
-  the shared testing guidance to match.
+- Require `bake-test-rust` 0.3.0 or newer for LLVM region coverage and update the shared testing guidance to match.
 
 ## v0.3.4
 
 - Require Bake 0.18.0 and Bake Cargo 0.4.0 for shared task registration.
-- Document a test-only shim pattern for deterministic coverage of difficult
-  I/O failures.
+- Document a test-only shim pattern for deterministic coverage of difficult I/O failures.
 
 ## v0.3.3
 
-- Point the project update skill at the shared Releasing skill and Bake Cargo
-  task documentation.
+- Point the project update skill at the shared Releasing skill and Bake Cargo task documentation.
 
 ## v0.3.2
 
-- Add a shared Releasing skill and remove links to duplicated Cargo publishing
-  guidance.
+- Add a shared Releasing skill and remove links to duplicated Cargo publishing guidance.
 - Update the setup instructions to use `socketry-project` 0.3.
 
 ## v0.3.1
 
-- Add a testing skill that sets the 100% line-coverage expectation and directs
-  agents to review uncovered code for semantic defects and use `bake-test-rust`
-  for canonical workflows and task details.
-- Document how to maintain consistency across Socketry packages and record new
-  semantic, layout, and naming patterns in the package that establishes them.
+- Add a testing skill that sets the 100% line-coverage expectation and directs agents to review uncovered code for semantic defects and use `bake-test-rust` for canonical workflows and task details.
+- Document how to maintain consistency across Socketry packages and record new semantic, layout, and naming patterns in the package that establishes them.
 
 ## v0.3.0
 
-- Add an update skill for auditing and modernizing existing Socketry Rust
-  projects.
+- Add an update skill for auditing and modernizing existing Socketry Rust projects.
 
 ## v0.2.7
 
-- Clarify how context installation uses `.agents/context/index.md` and local
-  Git exclusions without changing a repository-owned `agents.md`.
-- Express shared task dependencies as minimum versions so compatible updates
-  can be selected by the host project's lockfile.
+- Clarify how context installation uses `.agents/context/index.md` and local Git exclusions without changing a repository-owned `agents.md`.
+- Express shared task dependencies as minimum versions so compatible updates can be selected by the host project's lockfile.
 - Require 100% line coverage for workspace targets in GitHub Actions.
 - Use the shared `bake-test-rust` coverage task in the standard workflow.
 - Cover Bake task execution and the version-bump hook's task ordering.
@@ -52,13 +44,11 @@
 ## v0.2.6
 
 - Support `bake-agent-context` 0.2 while retaining compatibility with 0.1.
-- Keep the generated context index under `.agents/context/` without modifying
-  the repository owner's `agents.md`.
+- Keep the generated context index under `.agents/context/` without modifying the repository owner's `agents.md`.
 
 ## v0.2.5
 
-- Distribute repository setup, GitHub setup, and pull request guidance as
-  installable skills.
+- Distribute repository setup, GitHub setup, and pull request guidance as installable skills.
 - Provide shared Agent Context guidance through `bake-agent-context`.
 
 ## v0.2.4
