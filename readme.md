@@ -15,11 +15,13 @@ cargo install socketry-cargo-bake --locked
 cargo bake --regenerate
 ```
 
-Add this dependency under the existing `[dependencies]` table in `bake/Cargo.toml`:
+Let Cargo select the current dependency version:
 
-```toml
-socketry-project = ">=0.3.7"
+```sh
+cargo add --manifest-path bake/Cargo.toml socketry-project
 ```
+
+In `bake/Cargo.toml`, prefix the version selected by Cargo with `>=` to make it an open-ended minimum. Keep that actual minimum in the manifest and the resolved version in `Cargo.lock`; the setup documentation does not need a copy of either version.
 
 Then run `cargo bake --regenerate` again to link the dependency's tasks. The command keeps generated links separate from task source, so no manual import in `main.rs` is needed. Run `cargo bake --list` to see the available tasks. The open-ended minimum requirement keeps this development dependency eligible for newer releases. `Cargo.lock` records the selected version for reproducible builds; update it deliberately when adopting a newer release.
 
@@ -53,6 +55,11 @@ See [releases.md](releases.md) for the full release history.
 - Require `bake-test-rust` 0.3.0 or newer for LLVM region coverage and update the shared testing guidance to match.
 
 <!-- bake-readme:releases:end -->
+
+## See Also
+
+- [`bake`](https://github.com/socketry/bake-rust).
+- [`bake-test-rust`](https://github.com/socketry/bake-test-rust).
 
 ## Contributing
 

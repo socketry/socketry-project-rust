@@ -24,11 +24,13 @@ cargo install socketry-cargo-bake --locked
 cargo bake --regenerate
 ```
 
-The command creates `bake/`, adds it to the Cargo workspace, and writes a minimal binary. Add this dependency under the existing `[dependencies]` table in `bake/Cargo.toml`:
+The command creates `bake/`, adds it to the Cargo workspace, and writes a minimal binary. Let Cargo select the current dependency version:
 
-```toml
-socketry-project = ">=0.3.6"
+```sh
+cargo add --manifest-path bake/Cargo.toml socketry-project
 ```
+
+In `bake/Cargo.toml`, prefix the version selected by Cargo with `>=` to make it an open-ended minimum. Keep that actual minimum in the manifest and the resolved version in `Cargo.lock`; the setup documentation does not need a copy of either version.
 
 The open-ended minimum requirement allows newer `socketry-project` releases. The private Bake package's `Cargo.lock` records the selected version, so update the lockfile deliberately when adopting a newer release.
 
