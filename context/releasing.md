@@ -26,8 +26,9 @@ cargo bake cargo:version:bump --version X.Y.Z
 ```
 
 Choose one version task. The `socketry-project` hook updates `license.md`,
-`releases.md`, and generated sections of `readme.md`. Review all generated
-changes and ensure the release notes describe the actual changes.
+`releases.md`, and generated sections of `readme.md`, then normalizes those
+files and all Markdown under the public `context/` directory. Review the
+generated changes and ensure the release notes describe the actual changes.
 
 Run the project's required tests and coverage checks using the
 `socketry-project-testing` skill. Commit the version and release files, then run
@@ -59,9 +60,10 @@ the version tag and creates or updates the matching GitHub Release from
 `releases.md` using `cargo:releases:github:release`.
 
 These operations are Bake tasks; the workflow contains no inline Python release
-scripts. The task names in this workflow require `bake` 0.18.0 or newer and
+scripts. The task names in this workflow require `bake` 0.19.0 and
 `bake-cargo` 0.4.0 or newer in the resolved task binary, including its
-`Cargo.lock`.
+`Cargo.lock`. The version-bump hook also requires `bake-markdown` 0.2.0 or
+newer.
 
 After merging, check the workflow result, published package versions, version
 tag, and GitHub Release. If a publish workflow is still waiting for environment
