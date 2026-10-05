@@ -56,6 +56,11 @@ the matching GitHub Release from `releases.md`. See the shared
 <!-- bake-readme:releases:start -->
 See [releases.md](releases.md) for the full release history.
 
+### v0.3.5
+
+- Require `bake-test-rust` 0.3.0 or newer for LLVM region coverage and update
+  the shared testing guidance to match.
+
 ### v0.3.4
 
 - Require Bake 0.18.0 and Bake Cargo 0.4.0 for shared task registration.
@@ -66,12 +71,6 @@ See [releases.md](releases.md) for the full release history.
 
 - Point the project update skill at the shared Releasing skill and Bake Cargo
   task documentation.
-
-### v0.3.2
-
-- Add a shared Releasing skill and remove links to duplicated Cargo publishing
-  guidance.
-- Update the setup instructions to use `socketry-project` 0.3.
 <!-- bake-readme:releases:end -->
 
 ## Contributing

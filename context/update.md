@@ -39,7 +39,7 @@ Check these areas:
 - **Agent context:** reusable package guidance in `context/`, project-only
   instructions and skills in `.agents/`, and current installed context and
   skills.
-- **Testing:** tests for behavior, the 100% line-coverage expectation, and
+- **Testing:** tests for behavior, the 100% region-coverage expectation, and
   downstream testing where public compatibility makes it useful. Use the
   `socketry-project` Testing context and installed `bake-test-rust` guide for
   the current policy and task details.
