@@ -1,6 +1,6 @@
 # Releases
 
-## Unreleased
+## v0.3.8
 
 - Let Cargo select setup dependency versions while retaining open-ended minimum requirements.
 - Require current agent-context and readme providers so installed guidance preserves repository instructions and shared conventions.

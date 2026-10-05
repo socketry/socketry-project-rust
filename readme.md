@@ -39,6 +39,11 @@ Prepare a release with `cargo bake cargo:version:patch` (or `minor`, `major`, or
 
 See [releases.md](releases.md) for the full release history.
 
+### v0.3.8
+
+- Let Cargo select setup dependency versions while retaining open-ended minimum requirements.
+- Require current agent-context and readme providers so installed guidance preserves repository instructions and shared conventions.
+
 ### v0.3.7
 
 - Require a stable aggregate test and coverage result alongside publishing checks.
@@ -49,10 +54,6 @@ See [releases.md](releases.md) for the full release history.
 - Normalize standard project Markdown files after version bumps.
 - Fix the version bump hook's invocation of the Markdown normalizer.
 - Include `bake-markdown` 0.3.0 in the shared task set so version bumps use hyphen markers for unordered lists.
-
-### v0.3.5
-
-- Require `bake-test-rust` 0.3.0 or newer for LLVM region coverage and update the shared testing guidance to match.
 
 <!-- bake-readme:releases:end -->
 
