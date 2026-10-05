@@ -5,18 +5,13 @@ description: Prepare and follow through a reviewed release for Socketry Rust pro
 
 # Releasing
 
-Use this skill to prepare releases for Socketry Rust projects. Read the root
-`agents.md`, `readme.md`, and installed agent context for any project-specific
-release steps.
+Use this skill to prepare releases for Socketry Rust projects. Read the root `agents.md`, `readme.md`, and installed agent context for any project-specific release steps.
 
 ## Prepare a release
 
-Keep one Cargo workspace when its publishable packages share a version, release
-notes, and tag. Use separate repositories for packages that need independent
-release timing. See [Conventions](conventions.md#repository-and-package-boundaries).
+Keep one Cargo workspace when its publishable packages share a version, release notes, and tag. Use separate repositories for packages that need independent release timing. See [Conventions](conventions.md#repository-and-package-boundaries).
 
-Use the tasks linked by the project's private `bake/` package to bump the
-workspace version:
+Use the tasks linked by the project's private `bake/` package to bump the workspace version:
 
 ```sh
 cargo bake cargo:version:patch
@@ -25,62 +20,26 @@ cargo bake cargo:version:major
 cargo bake cargo:version:bump --version X.Y.Z
 ```
 
-Choose one version task. The `socketry-project` hook updates `license.md`,
-`releases.md`, and generated sections of `readme.md`, then normalizes those
-files and all Markdown under the public `context/` directory. Review the
-generated changes and ensure the release notes describe the actual changes.
+Choose one version task. The `socketry-project` hook updates `license.md`, `releases.md`, and generated sections of `readme.md`, then normalizes those files and all Markdown under the public `context/` directory. Review the generated changes and ensure the release notes describe the actual changes.
 
-Run the project's required tests and coverage checks using the
-`socketry-project-testing` skill. Commit the version and release files, then run
-`cargo bake cargo:release` from the clean worktree. This validates and packages
-the release candidate; it does not publish or tag it. Open a reviewed pull
-request after the task succeeds.
+Run the project's required tests and coverage checks using the `socketry-project-testing` skill. Commit the version and release files, then run `cargo bake cargo:release` from the clean worktree. This validates and packages the release candidate; it does not publish or tag it. Open a reviewed pull request after the task succeeds.
 
 ## Publish through GitHub Actions
 
-Generate `.github/workflows/publish.yml` with `cargo bake cargo:setup:workflow`.
-The canonical template is maintained in
-[`bake-cargo-rust/src/publish.yml`](https://github.com/socketry/bake-cargo-rust/blob/main/src/publish.yml).
-Keep repository-specific changes limited to the configured branch and update
-this shared template when the standard workflow changes.
+Generate `.github/workflows/publish.yml` with `cargo bake cargo:setup:workflow`. The canonical template is maintained in [`bake-cargo-rust/src/publish.yml`](https://github.com/socketry/bake-cargo-rust/blob/main/src/publish.yml). Keep repository-specific changes limited to the configured branch and update this shared template when the standard workflow changes.
 
-The check job installs the Bake launcher and runs
-`cargo:release:detect --base "$BAKE_BEFORE" --sha "$BAKE_SHA"`. That task
-compares the current workspace version with the base commit, checks the matching
-`releases.md` heading when the version changed, and writes the `release` and
-`version` GitHub outputs. Release candidates then run `cargo:release` before the
-formatting, Clippy, and test checks.
+The check job installs the Bake launcher and runs `cargo:release:detect --base "$BAKE_BEFORE" --sha "$BAKE_SHA"`. That task compares the current workspace version with the base commit, checks the matching `releases.md` heading when the version changed, and writes the `release` and `version` GitHub outputs. Release candidates then run `cargo:release` before the formatting, Clippy, and test checks.
 
-After a merge to the configured branch, the `crates-io` environment gates the
-publish job. `cargo:publish:pending --version "$BAKE_VERSION"` checks which
-workspace packages still need publishing. GitHub OIDC authentication runs only
-when packages are pending. `cargo:release:publish --version "$BAKE_VERSION"
---sha "$BAKE_SHA"` publishes the remaining packages, then creates and pushes
-the version tag and creates or updates the matching GitHub Release from
-`releases.md` using `cargo:releases:github:release`.
+After a merge to the configured branch, the `crates-io` environment gates the publish job. `cargo:publish:pending --version "$BAKE_VERSION"` checks which workspace packages still need publishing. GitHub OIDC authentication runs only when packages are pending. `cargo:release:publish --version "$BAKE_VERSION" --sha "$BAKE_SHA"` publishes the remaining packages, then creates and pushes the version tag and creates or updates the matching GitHub Release from `releases.md` using `cargo:releases:github:release`.
 
-These operations are Bake tasks; the workflow contains no inline Python release
-scripts. The task names in this workflow require `bake` 0.19.0 and
-`bake-cargo` 0.4.0 or newer in the resolved task binary, including its
-`Cargo.lock`. The version-bump hook also requires `bake-markdown` 0.2.0 or
-newer.
+These operations are Bake tasks; the workflow contains no inline Python release scripts. The task names in this workflow require `bake` 0.19.0 and `bake-cargo` 0.4.0 or newer in the resolved task binary, including its `Cargo.lock`. The version-bump hook also requires `bake-markdown` 0.2.0 or newer.
 
-After merging, check the workflow result, published package versions, version
-tag, and GitHub Release. If a publish workflow is still waiting for environment
-approval, obtain that approval through the configured reviewer process.
+After merging, check the workflow result, published package versions, version tag, and GitHub Release. If a publish workflow is still waiting for environment approval, obtain that approval through the configured reviewer process.
+
 ## Set up publishing
 
-For a new repository, use `cargo bake cargo:setup:workflow` to generate the
-workflow. Put required environment reviewers in `Cargo.toml`, preview settings
-with `cargo bake cargo:setup:github:plan`, and apply them with
-`cargo bake cargo:setup:github:apply` after reviewing the plan.
+For a new repository, use `cargo bake cargo:setup:workflow` to generate the workflow. Put required environment reviewers in `Cargo.toml`, preview settings with `cargo bake cargo:setup:github:plan`, and apply them with `cargo bake cargo:setup:github:apply` after reviewing the plan.
 
-For a crate's first upload, `cargo bake cargo:bootstrap PACKAGE` publishes it
-with an owner token and registers its trusted publisher. Keep the token out of
-the repository. After the initial upload, use GitHub OIDC for routine releases;
-enable trusted-publishing-only mode after the workflow has published
-successfully.
+For a crate's first upload, `cargo bake cargo:bootstrap PACKAGE` publishes it with an owner token and registers its trusted publisher. Keep the token out of the repository. After the initial upload, use GitHub OIDC for routine releases; enable trusted-publishing-only mode after the workflow has published successfully.
 
-For exact arguments and behavior of these tasks, consult the
-[Bake Cargo Readme](https://github.com/socketry/bake-cargo-rust/blob/main/readme.md)
-and each task's `--help` output.
+For exact arguments and behavior of these tasks, consult the [Bake Cargo Readme](https://github.com/socketry/bake-cargo-rust/blob/main/readme.md) and each task's `--help` output.

@@ -38,7 +38,7 @@ fn update_readme(context: &mut bake::Context, _: &Arguments) -> Result<Value> {
 }
 
 fn normalize_markdown(context: &mut bake::Context, arguments: &Arguments) -> Result<Value> {
-    let paths = arguments.repeated::<std::path::PathBuf>("path")?;
+    let paths = arguments.repeated::<std::path::PathBuf>("paths")?;
     record(context, "markdown:normalize", None)?;
     context.get_mut::<Calls>().unwrap().markdown_paths = paths;
     Ok(Value::Null)
@@ -73,7 +73,7 @@ fn registry() -> Registry {
         .register(Task::new(
             "markdown:normalize",
             "",
-            vec![Parameter::new::<std::path::PathBuf>("path").repeated()],
+            vec![Parameter::new::<std::path::PathBuf>("paths").variadic()],
             normalize_markdown,
         ))
         .unwrap();
