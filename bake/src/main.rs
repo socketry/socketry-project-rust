@@ -2,6 +2,7 @@
 // Copyright, 2026, by Samuel Williams.
 
 use bake::Registry;
+use bake_markdown as _;
 use std::process::ExitCode;
 
 fn main() -> ExitCode {
@@ -27,6 +28,7 @@ mod tests {
         assert!(names.contains(&"cargo:release"));
         assert!(names.contains(&"cargo:after_version_bump"));
         assert!(names.contains(&"license:update"));
+        assert!(names.contains(&"markdown:normalize"));
         assert!(names.contains(&"readme:update"));
         assert!(names.contains(&"releases:update"));
     }

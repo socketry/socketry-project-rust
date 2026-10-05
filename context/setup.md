@@ -62,7 +62,9 @@ reviewers = ["socketry/managers"]
 The `socketry-project` dependency makes the shared tasks available to the
 private Bake binary. It also registers `cargo:after_version_bump`, which updates
 `license.md`, `releases.md`, and generated sections in `readme.md` after a
-version change.
+version change, then normalizes those files and every Markdown file under the
+public `context/` directory. Locally installed `.agents/context/` files are not
+included.
 Keep task tooling out of unrelated published libraries. Consumer projects
 should depend on `socketry-project` from their private `bake/` package.
 
@@ -95,9 +97,9 @@ Use `cargo bake cargo:setup:workflow` to generate
 workflow runs `cargo:release:detect` and `cargo:release` for release checks,
 then `cargo:publish:pending` and `cargo:release:publish` after merge through
 the configured `crates-io` environment. The standard workflow is documented in
-the shared Releasing skill; its task binary must resolve `bake` 0.18.0 and
-`bake-cargo` 0.4.0 or newer. Follow the `bake-test-rust` context for test
-workflow and task details.
+the shared Releasing skill; its task binary must resolve `bake` 0.19.0,
+`bake-cargo` 0.4.0, and `bake-markdown` 0.2.0 or newer. Follow the
+`bake-test-rust` context for test workflow and task details.
 
 ## Work on the project
 

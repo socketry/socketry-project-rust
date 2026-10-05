@@ -1,5 +1,9 @@
 # Releases
 
+## Unreleased
+
+- Normalize standard project Markdown files after version bumps.
+
 ## v0.3.5
 
 - Require `bake-test-rust` 0.3.0 or newer for LLVM region coverage and update
