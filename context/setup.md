@@ -39,8 +39,12 @@ minimal binary. Add this dependency under the existing `[dependencies]` table in
 `bake/Cargo.toml`:
 
 ```toml
-socketry-project = "0.3"
+socketry-project = ">=0.3.4"
 ```
+
+The open-ended minimum requirement allows newer `socketry-project` releases.
+The private Bake package's `Cargo.lock` records the selected version, so update
+the lockfile deliberately when adopting a newer release.
 
 Run regeneration again to link its task registrations:
 
