@@ -1,5 +1,10 @@
 # Releases
 
+## v0.3.7
+
+- Require a stable aggregate test and coverage result alongside publishing checks.
+- Clarify merge gates and repository-owned agent guidance in the shared conventions.
+
 ## v0.3.6
 
 - Normalize standard project Markdown files after version bumps.

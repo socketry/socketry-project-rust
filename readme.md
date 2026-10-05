@@ -18,7 +18,7 @@ cargo bake --regenerate
 Add this dependency under the existing `[dependencies]` table in `bake/Cargo.toml`:
 
 ```toml
-socketry-project = ">=0.3.6"
+socketry-project = ">=0.3.7"
 ```
 
 Then run `cargo bake --regenerate` again to link the dependency's tasks. The command keeps generated links separate from task source, so no manual import in `main.rs` is needed. Run `cargo bake --list` to see the available tasks. The open-ended minimum requirement keeps this development dependency eligible for newer releases. `Cargo.lock` records the selected version for reproducible builds; update it deliberately when adopting a newer release.
@@ -37,6 +37,11 @@ Prepare a release with `cargo bake cargo:version:patch` (or `minor`, `major`, or
 
 See [releases.md](releases.md) for the full release history.
 
+### v0.3.7
+
+- Require a stable aggregate test and coverage result alongside publishing checks.
+- Clarify merge gates and repository-owned agent guidance in the shared conventions.
+
 ### v0.3.6
 
 - Normalize standard project Markdown files after version bumps.
@@ -47,11 +52,6 @@ See [releases.md](releases.md) for the full release history.
 
 - Require `bake-test-rust` 0.3.0 or newer for LLVM region coverage and update the shared testing guidance to match.
 
-### v0.3.4
-
-- Require Bake 0.18.0 and Bake Cargo 0.4.0 for shared task registration.
-- Document a test-only shim pattern for deterministic coverage of difficult I/O failures.
-
 <!-- bake-readme:releases:end -->
 
 ## Contributing
@@ -60,6 +60,6 @@ Please open an issue or pull request on [GitHub](https://github.com/socketry/soc
 
 ### Agent Context
 
-Run `cargo bake agent:context:install` to install shared context and skills. Read `.agents/context/index.md` to find relevant guides, follow `agents.md` if present, and apply skills under `.agents/skills/`. See the [Agent Context guide] for guidance on organizing package context and repository-only instructions.
+Run `cargo bake agent:context:install` to install shared context and skills. Read `.agents/context/index.md` to find relevant guides, follow `agents.md` if present, and apply skills under `.agents/skills/`. The installer preserves repository-owned `agents.md`; it does not create or regenerate that file.
 
 [Agent Context guide]: https://github.com/socketry/bake-agent-context-rust/blob/main/context/agent-context.md

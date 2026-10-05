@@ -41,7 +41,7 @@ Use the `socketry-project-pull-requests` skill for the full title, commit, descr
 
 ## Branch protection
 
-Protect `main` and require pull requests with at least one approval. Allow administrators to bypass these rules for maintenance. Require only stable checks that are needed for safe auto-merge; do not make experimental, informational, or unreliable coverage checks mandatory.
+Protect `main` and require pull requests with at least one approval. Allow administrators to bypass these rules for maintenance. Require the publishing workflow's `check` job and the testing workflow's stable `test-result` job. The latter succeeds only when all required test and coverage jobs succeed. Keep experimental or diagnostic jobs outside this gate.
 
 ## Apply settings safely
 
