@@ -28,6 +28,8 @@ Run the project's required tests and coverage checks using the `socketry-project
 
 Generate `.github/workflows/publish.yml` with `cargo bake cargo:setup:workflow`. The canonical template is maintained in [`bake-cargo-rust/src/publish.yml`](https://github.com/socketry/bake-cargo-rust/blob/main/src/publish.yml). Keep repository-specific changes limited to the configured branch and update this shared template when the standard workflow changes.
 
+Require both `check` from `publish.yml` and `test-result` from `test.yml` in the branch ruleset. The aggregate test result must depend on every required test and coverage job, including matrix jobs, and run with `if: always()` so failures, cancellations, and skipped prerequisites cannot silently bypass it. Ordinary tests run only on pushes in `publish.yml`; pull requests rely on the required testing workflow.
+
 The check job installs the Bake launcher and runs `cargo:release:detect --base "$BAKE_BEFORE" --sha "$BAKE_SHA"`. That task compares the current workspace version with the base commit, checks the matching `releases.md` heading when the version changed, and writes the `release` and `version` GitHub outputs. Release candidates then run `cargo:release` before the formatting, Clippy, and test checks.
 
 After a merge to the configured branch, the `crates-io` environment gates the publish job. `cargo:publish:pending --version "$BAKE_VERSION"` checks which workspace packages still need publishing. GitHub OIDC authentication runs only when packages are pending. `cargo:release:publish --version "$BAKE_VERSION" --sha "$BAKE_SHA"` publishes the remaining packages, then creates and pushes the version tag and creates or updates the matching GitHub Release from `releases.md` using `cargo:releases:github:release`.
