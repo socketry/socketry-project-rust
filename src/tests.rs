@@ -70,15 +70,34 @@ fn registry() -> Registry {
         )
         .unwrap();
     registry
-        .register(Task::new(
+        .replace(
             "markdown:normalize",
-            "",
-            vec![Parameter::new::<std::path::PathBuf>("paths").variadic()],
-            normalize_markdown,
-        ))
+            Task::new(
+                "markdown:normalize",
+                "",
+                vec![Parameter::new::<std::path::PathBuf>("paths").variadic()],
+                normalize_markdown,
+            ),
+        )
         .unwrap();
 
     registry
+}
+
+#[test]
+fn exports_markdown_normalization_with_hyphen_markers() {
+    let directory = tempfile::tempdir().unwrap();
+    let path = directory.path().join("readme.md");
+    std::fs::write(&path, "* first\n* second\n").unwrap();
+
+    let registry = Registry::discover().unwrap();
+    let mut context = registry.context(directory.path());
+    context.call("markdown:normalize", &["readme.md"]).unwrap();
+
+    assert_eq!(
+        std::fs::read_to_string(path).unwrap(),
+        "- first\n- second\n"
+    );
 }
 
 #[test]

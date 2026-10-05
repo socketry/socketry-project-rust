@@ -9,11 +9,11 @@ Use these defaults when creating a Socketry repository. Preserve deliberate proj
 
 ## Repository metadata
 
-* Use the canonical Socketry organization and project name.
-* Write a short, accurate repository description.
-* Set the homepage to the documentation site when one exists.
-* Add focused topics for discovery; avoid repeating words already in the repository name.
-* Use `main` as the default branch.
+- Use the canonical Socketry organization and project name.
+- Write a short, accurate repository description.
+- Set the homepage to the documentation site when one exists.
+- Add focused topics for discovery; avoid repeating words already in the repository name.
+- Use `main` as the default branch.
 
 ## Collaboration features
 
@@ -21,21 +21,21 @@ Enable Issues, Discussions, Pull Requests, Sponsorships, and repository preserva
 
 Use GitHub issue types to classify issues consistently:
 
-* `Bug` for defects and regressions.
-* `Feature` for new user-facing capabilities.
-* `Task` for maintenance, refactoring, documentation, tests, and release work.
+- `Bug` for defects and regressions.
+- `Feature` for new user-facing capabilities.
+- `Task` for maintenance, refactoring, documentation, tests, and release work.
 
 Prefer organization or repository labels that already exist. Add labels only when the project needs a reusable classification not covered by issue types or existing labels. Do not repeat issue type information in issue text when GitHub already records it as metadata. Issue types apply to issues; do not assign one to a pull request or include issue type information in its text.
 
 ## Pull requests and commits
 
-* Disable merge commits; allow squash and rebase merging.
-* Suggest updating pull request branches, allow auto-merge, and delete merged head branches automatically.
-* Require contributors to sign off on commits made through GitHub's web interface.
-* Allow comments on individual commits.
-* Use Markdown, complete sentences, and a final period for pull request titles and commit messages.
-* Keep most commit messages to one line. Start with what changed.
-* Describe pull requests with a short summary followed by the problem and solution. Do not add a separate change type section or assign an issue type to a pull request.
+- Disable merge commits; allow squash and rebase merging.
+- Suggest updating pull request branches, allow auto-merge, and delete merged head branches automatically.
+- Require contributors to sign off on commits made through GitHub's web interface.
+- Allow comments on individual commits.
+- Use Markdown, complete sentences, and a final period for pull request titles and commit messages.
+- Keep most commit messages to one line. Start with what changed.
+- Describe pull requests with a short summary followed by the problem and solution. Do not add a separate change type section or assign an issue type to a pull request.
 
 Use the `socketry-project-pull-requests` skill for the full title, commit, description, testing, and release note conventions.
 

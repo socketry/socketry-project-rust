@@ -9,6 +9,7 @@ use bake::{Context, Result};
 use bake_agent_context as _;
 use bake_cargo as _;
 use bake_license as _;
+use bake_markdown as _;
 use bake_readme as _;
 use bake_releases as _;
 use bake_test_rust as _;

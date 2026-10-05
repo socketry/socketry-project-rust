@@ -32,7 +32,7 @@ The check job installs the Bake launcher and runs `cargo:release:detect --base "
 
 After a merge to the configured branch, the `crates-io` environment gates the publish job. `cargo:publish:pending --version "$BAKE_VERSION"` checks which workspace packages still need publishing. GitHub OIDC authentication runs only when packages are pending. `cargo:release:publish --version "$BAKE_VERSION" --sha "$BAKE_SHA"` publishes the remaining packages, then creates and pushes the version tag and creates or updates the matching GitHub Release from `releases.md` using `cargo:releases:github:release`.
 
-These operations are Bake tasks; the workflow contains no inline Python release scripts. The task names in this workflow require `bake` 0.19.0 and `bake-cargo` 0.4.0 or newer in the resolved task binary, including its `Cargo.lock`. The version-bump hook also requires `bake-markdown` 0.2.0 or newer.
+These operations are Bake tasks; the workflow contains no inline Python release scripts. The task names in this workflow require `bake` 0.19.0 and `bake-cargo` 0.4.0 or newer in the resolved task binary, including its `Cargo.lock`. The version-bump hook also requires `bake-markdown` 0.3.0 or newer, which uses hyphen markers for unordered lists.
 
 After merging, check the workflow result, published package versions, version tag, and GitHub Release. If a publish workflow is still waiting for environment approval, obtain that approval through the configured reviewer process.
 
