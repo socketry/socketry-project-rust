@@ -117,7 +117,7 @@ mod tests {
 
         let error = super::after_version_bump(&mut context, "0.3.0".to_owned()).unwrap_err();
 
-        assert_eq!(error.to_string(), "injected task failure");
+        assert_eq!(error.to_string(), "license:update: injected task failure");
         assert_eq!(
             context.get::<Calls>().unwrap().values,
             [("license:update".to_owned(), None)]
@@ -135,7 +135,7 @@ mod tests {
 
         let error = super::after_version_bump(&mut context, "0.3.0".to_owned()).unwrap_err();
 
-        assert_eq!(error.to_string(), "injected task failure");
+        assert_eq!(error.to_string(), "releases:update: injected task failure");
         assert_eq!(
             context.get::<Calls>().unwrap().values,
             [
@@ -156,7 +156,7 @@ mod tests {
 
         let error = super::after_version_bump(&mut context, "0.3.0".to_owned()).unwrap_err();
 
-        assert_eq!(error.to_string(), "injected task failure");
+        assert_eq!(error.to_string(), "readme:update: injected task failure");
         assert_eq!(
             context.get::<Calls>().unwrap().values,
             [
