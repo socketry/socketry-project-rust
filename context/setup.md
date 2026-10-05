@@ -39,7 +39,7 @@ minimal binary. Add this dependency under the existing `[dependencies]` table in
 `bake/Cargo.toml`:
 
 ```toml
-socketry-project = ">=0.3.4"
+socketry-project = ">=0.3.3"
 ```
 
 The open-ended minimum requirement allows newer `socketry-project` releases.
