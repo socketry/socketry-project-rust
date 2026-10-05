@@ -21,12 +21,15 @@ Add this dependency under the existing `[dependencies]` table in
 `bake/Cargo.toml`:
 
 ```toml
-socketry-project = "0.3"
+socketry-project = ">=0.3.3"
 ```
 
 Then run `cargo bake --regenerate` again to link the dependency's tasks. The
 command keeps generated links separate from task source, so no manual import in
 `main.rs` is needed. Run `cargo bake --list` to see the available tasks.
+The open-ended minimum requirement keeps this development dependency eligible
+for newer releases. `Cargo.lock` records the selected version for reproducible
+builds; update it deliberately when adopting a newer release.
 
 This adds the standard Cargo, release, license, Readme, agent-context, and
 testing tasks, including `test` and `test:external`. It also registers a
