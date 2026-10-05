@@ -23,7 +23,7 @@ Enable Issues, Discussions, Pull Requests, Sponsorships, and repository
 preservation. Disable Projects and Wiki unless the project has a concrete use
 for them.
 
-Use GitHub issue types consistently:
+Use GitHub issue types to classify issues consistently:
 
 - `Bug` for defects and regressions.
 - `Feature` for new user-facing capabilities.
@@ -31,8 +31,9 @@ Use GitHub issue types consistently:
 
 Prefer organization or repository labels that already exist. Add labels only
 when the project needs a reusable classification not covered by issue types or
-existing labels. Do not repeat issue type information in issue or pull request
-text when GitHub already records it as metadata.
+existing labels. Do not repeat issue type information in issue text when GitHub
+already records it as metadata. Issue types apply to issues; do not assign one
+to a pull request or include issue type information in its text.
 
 ## Pull requests and commits
 
@@ -46,8 +47,8 @@ text when GitHub already records it as metadata.
   and commit messages.
 - Keep most commit messages to one line. Start with what changed.
 - Describe pull requests with a short summary followed by the problem and
-  solution. Use GitHub issue type metadata instead of adding a separate change
-  type section.
+  solution. Do not add a separate change type section or assign an issue type
+  to a pull request.
 
 Use the `socketry-project-pull-requests` skill for the full title, commit,
 description, testing, and release note conventions.

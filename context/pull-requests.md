@@ -1,6 +1,6 @@
 ---
 type: skill
-description: Prepare commits and GitHub pull requests for Socketry Rust projects. Use when writing commit messages, creating or updating a pull request, choosing its issue type, or deciding what to include in the description and release notes.
+description: Prepare commits and GitHub pull requests for Socketry Rust projects. Use when writing commit messages, creating or updating a pull request, or deciding what to include in the description and release notes.
 ---
 
 # Pull Requests
@@ -37,8 +37,10 @@ that help reviewers understand the change. Link relevant issues if applicable.
 Include screenshots for visual changes.
 ```
 
-Do not add a `Types of Changes` section. Use GitHub issue type metadata for
-classification instead.
+Do not add a `Types of Changes` section. Issue types classify GitHub issues;
+do not assign an issue type to a pull request or include issue type metadata in
+its description. If a related issue needs classification, set the type on that
+issue.
 
 ## Testing
 
@@ -55,9 +57,10 @@ validation requirement.
 For user-visible changes, add a brief entry to `releases.md` following the
 release notes guidance provided by `bake-releases`.
 
-## Issue type
+## Issue types
 
-Set the GitHub issue type correctly when creating or updating a pull request:
+Issue types apply to GitHub issues. Do not try to set an issue type when
+creating or updating a pull request. For a linked issue, use its issue type:
 
 - Use `Bug` for defect fixes and regressions.
 - Use `Feature` for new user-facing capabilities.
