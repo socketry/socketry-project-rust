@@ -27,14 +27,19 @@ mod tests {
     use bake::{Arguments, Parameter, Registry, Result, Task, Value};
 
     #[derive(Default)]
-    struct Calls(Vec<(String, Option<String>)>);
+    struct Calls {
+        values: Vec<(String, Option<String>)>,
+        fail_at: Option<String>,
+    }
 
     fn record(context: &mut bake::Context, name: &str, value: Option<String>) -> Result<Value> {
-        context
-            .get_mut::<Calls>()
-            .expect("the test records calls")
-            .0
-            .push((name.to_owned(), value));
+        let calls = context.get_mut::<Calls>().expect("the test records calls");
+        calls.values.push((name.to_owned(), value));
+
+        if calls.fail_at.as_deref() == Some(name) {
+            return Err(bake::Error::new("injected task failure"));
+        }
+
         Ok(Value::Null)
     }
 
@@ -54,8 +59,7 @@ mod tests {
         record(context, "readme:update", None)
     }
 
-    #[test]
-    fn refreshes_project_files_in_order_for_the_requested_version() {
+    fn registry() -> Registry {
         let mut registry = Registry::discover().unwrap();
         registry
             .replace(
@@ -81,19 +85,98 @@ mod tests {
             )
             .unwrap();
 
+        registry
+    }
+
+    #[test]
+    fn refreshes_project_files_in_order_for_the_requested_version() {
+        let registry = registry();
         let mut context = registry.context(".");
         context.insert(Calls::default());
 
         super::after_version_bump(&mut context, "0.3.0".to_owned()).unwrap();
 
         assert_eq!(
-            context.get::<Calls>().unwrap().0,
+            context.get::<Calls>().unwrap().values,
             [
                 ("license:update".to_owned(), None),
                 ("releases:update".to_owned(), Some("v0.3.0".to_owned())),
                 ("readme:update".to_owned(), None),
             ]
         );
+    }
+
+    #[test]
+    fn propagates_license_update_failure() {
+        let registry = registry();
+        let mut context = registry.context(".");
+        context.insert(Calls {
+            fail_at: Some("license:update".to_owned()),
+            ..Calls::default()
+        });
+
+        let error = super::after_version_bump(&mut context, "0.3.0".to_owned()).unwrap_err();
+
+        assert_eq!(error.to_string(), "injected task failure");
+        assert_eq!(
+            context.get::<Calls>().unwrap().values,
+            [("license:update".to_owned(), None)]
+        );
+    }
+
+    #[test]
+    fn propagates_release_update_failure() {
+        let registry = registry();
+        let mut context = registry.context(".");
+        context.insert(Calls {
+            fail_at: Some("releases:update".to_owned()),
+            ..Calls::default()
+        });
+
+        let error = super::after_version_bump(&mut context, "0.3.0".to_owned()).unwrap_err();
+
+        assert_eq!(error.to_string(), "injected task failure");
+        assert_eq!(
+            context.get::<Calls>().unwrap().values,
+            [
+                ("license:update".to_owned(), None),
+                ("releases:update".to_owned(), Some("v0.3.0".to_owned())),
+            ]
+        );
+    }
+
+    #[test]
+    fn propagates_readme_update_failure() {
+        let registry = registry();
+        let mut context = registry.context(".");
+        context.insert(Calls {
+            fail_at: Some("readme:update".to_owned()),
+            ..Calls::default()
+        });
+
+        let error = super::after_version_bump(&mut context, "0.3.0".to_owned()).unwrap_err();
+
+        assert_eq!(error.to_string(), "injected task failure");
+        assert_eq!(
+            context.get::<Calls>().unwrap().values,
+            [
+                ("license:update".to_owned(), None),
+                ("releases:update".to_owned(), Some("v0.3.0".to_owned())),
+                ("readme:update".to_owned(), None),
+            ]
+        );
+    }
+
+    #[test]
+    fn rejects_a_missing_release_version_argument() {
+        let registry = registry();
+        let mut context = registry.context(".");
+        context.insert(Calls::default());
+
+        let error = update_releases(&mut context, &Arguments::default()).unwrap_err();
+
+        assert_eq!(error.to_string(), "missing argument \"version\"");
+        assert!(context.get::<Calls>().unwrap().values.is_empty());
     }
 
     #[test]
