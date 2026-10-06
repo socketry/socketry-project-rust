@@ -1,7 +1,8 @@
 # Releases
 
-## Unreleased
+## v0.3.10
 
+- Add independent adversarial review guidance, with local iteration until all non-trivial issues are resolved before opening a pull request.
 - Clarify that the private Bake package shares the workspace's root lockfile.
 
 ## v0.3.9
