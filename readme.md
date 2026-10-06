@@ -39,7 +39,7 @@ Prepare a release with `cargo bake cargo:version:patch` (or `minor`, `major`, or
 
 See [releases.md](releases.md) for the full release history.
 
-### v0.3.12
+### v0.3.13
 
 - Use named references between skills and agent context so guidance remains usable after installation.
 
