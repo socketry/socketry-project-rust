@@ -22,7 +22,7 @@ Check these areas:
 - **Cargo and Bake setup:** package and workspace boundaries, the private `bake/` package, the shared `socketry-project` dependency, and generated task links.
 - **Project files:** lowercase `readme.md`, `license.md`, and `releases.md`, with standard sections and generated content maintained by shared tasks.
 - **Agent context:** reusable package guidance in `context/`, project-only instructions and skills in `.agents/`, and current installed context and skills.
-- **Testing:** tests for behavior, the 100% region-coverage expectation, and downstream testing where public compatibility makes it useful. Use the `socketry-project` Testing context and installed `bake-test-rust` guide for the current policy and task details.
+- **Testing:** tests for behavior, the 100% region-coverage expectation, and downstream testing where public compatibility makes it useful. Use the `socketry-project-testing` skill and the Rust Testing Tasks guide supplied by `bake-test-rust` for the current policy and task details.
 - **GitHub workflows:** the standard test and publish workflows, plus external testing when downstream projects are configured. Use the GitHub repository skill for repository settings and the `socketry-project-releasing` skill for publishing workflow setup. Consult the Bake Cargo Readme for task behavior, workflow generation, and trusted-publishing details.
 
 Classify findings as required baseline changes, optional recommendations, or valid project-specific exceptions. Preserve deliberate local architecture and custom workflows when they do not conflict with an explicit organization convention.
