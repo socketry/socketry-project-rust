@@ -39,6 +39,11 @@ Prepare a release with `cargo bake cargo:version:patch` (or `minor`, `major`, or
 
 See [releases.md](releases.md) for the full release history.
 
+### v0.3.11
+
+- Document how to maintain dependency versions in installation examples and compatibility guidance, using manifests and lockfiles as authoritative sources.
+- Replace duplicated release-tooling version lists with guidance for checking the resolved provider's manifest.
+
 ### v0.3.10
 
 - Add independent adversarial review guidance, with local iteration until all non-trivial issues are resolved before opening a pull request.
@@ -47,11 +52,6 @@ See [releases.md](releases.md) for the full release history.
 ### v0.3.9
 
 - Follow Rust acronym casing in type and trait names, using `HtmlRenderer`, `HttpClient`, `UrlParser`, and `FileIo`.
-
-### v0.3.8
-
-- Let Cargo select setup dependency versions while retaining open-ended minimum requirements.
-- Require current agent-context and readme providers so installed guidance preserves repository instructions and shared conventions.
 
 <!-- bake-readme:releases:end -->
 

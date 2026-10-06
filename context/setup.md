@@ -32,7 +32,7 @@ cargo add --manifest-path bake/Cargo.toml socketry-project
 
 In `bake/Cargo.toml`, prefix the version selected by Cargo with `>=` to make it an open-ended minimum. Keep that actual minimum in the manifest and the resolved version in `Cargo.lock`; the setup documentation does not need a copy of either version.
 
-The open-ended minimum requirement allows newer `socketry-project` releases. The workspace's root `Cargo.lock` records the selected version for the private `bake/` package, so update that lockfile deliberately when adopting a newer release.
+The open-ended minimum requirement allows newer `socketry-project` releases. The workspace's root `Cargo.lock` records the selected version for the private `bake/` package, so update that lockfile deliberately when adopting a newer release. Follow the [dependency-version documentation guidelines](https://github.com/socketry/socketry-project-rust/blob/main/context/conventions.md#dependency-versions-in-documentation) when writing setup examples or compatibility requirements.
 
 Run regeneration again to link its task registrations:
 
@@ -61,7 +61,7 @@ Configure repository metadata, collaboration features, pull request defaults, an
 
 Use the `socketry-project-testing` skill for organization-wide testing expectations. Consult the installed `bake-test-rust` context for canonical `test.yml` and optional `external.yml` workflows, task setup, coverage options, and downstream test configuration.
 
-Use `cargo bake cargo:setup:workflow` to generate `.github/workflows/publish.yml` from the canonical Bake Cargo template. The workflow runs `cargo:release:detect` and `cargo:release` for release checks, then `cargo:publish:pending` and `cargo:release:publish` after merge through the configured `crates-io` environment. The standard workflow is documented in the shared Releasing skill; its task binary must resolve `bake` 0.19.0, `bake-cargo` 0.4.0, and `bake-markdown` 0.3.0 or newer. Follow the `bake-test-rust` context for test workflow and task details.
+Use `cargo bake cargo:setup:workflow` to generate `.github/workflows/publish.yml` from the canonical Bake Cargo template. The workflow runs `cargo:release:detect` and `cargo:release` for release checks, then `cargo:publish:pending` and `cargo:release:publish` after merge through the configured `crates-io` environment. Follow the `socketry-project-releasing` skill for the standard workflow and task-provider requirements, and the `bake-test-rust` context for test workflow and task details.
 
 ## Work on the project
 

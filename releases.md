@@ -1,5 +1,10 @@
 # Releases
 
+## v0.3.11
+
+- Document how to maintain dependency versions in installation examples and compatibility guidance, using manifests and lockfiles as authoritative sources.
+- Replace duplicated release-tooling version lists with guidance for checking the resolved provider's manifest.
+
 ## v0.3.10
 
 - Add independent adversarial review guidance, with local iteration until all non-trivial issues are resolved before opening a pull request.
