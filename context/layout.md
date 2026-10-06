@@ -20,7 +20,7 @@ project/
 
 ## Cargo package and source modules
 
-The root `Cargo.toml` defines the package and, when needed, the workspace. Put library code under `src/`, integration tests under `tests/`, and runnable examples under `examples/`. See [Conventions](conventions.md) for package and workspace boundaries, and the [setup skill](setup.md) for the private Bake package.
+The root `Cargo.toml` defines the package and, when needed, the workspace. Put library code under `src/`, integration tests under `tests/`, and runnable examples under `examples/`. See [Conventions](conventions.md) for package and workspace boundaries, and the `socketry-project-setup` skill for the private Bake package.
 
 ## Source modules and files
 
@@ -61,4 +61,4 @@ Declare child modules from `main.rs`; Cargo discovers the target root and the de
 
 Put runnable examples under `examples/`. Store project tool configuration in a clearly named configuration file or the relevant Cargo metadata; avoid adding a configuration directory without a concrete tool that uses it.
 
-Follow the `socketry-project-testing` skill for testing expectations and consult the installed `bake-test-rust` context for task and workflow details. Use the [setup skill](setup.md) for workflow setup.
+Follow the `socketry-project-testing` skill for testing expectations and consult the installed `bake-test-rust` context for task and workflow details. Use the `socketry-project-setup` skill for workflow setup.
