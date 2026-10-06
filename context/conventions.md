@@ -40,6 +40,15 @@ Before introducing a new semantic, layout, or naming pattern, check how related 
 - Avoid duplicating Rust-wide guidance from `bake-agent-context`; add project context for the architecture and decisions that are specific to the crate.
 - Follow the Agent Context section in `readme.md` to install and discover shared context and skills. The `bake-agent-context` guide explains the installer's behavior.
 
+## Dependency versions in documentation
+
+- Prefer installation commands such as `cargo add socketry-markdown` or `cargo add --manifest-path bake/Cargo.toml socketry-project`. Let Cargo select the dependency and write its manifest requirement. See [Cargo's `cargo add` documentation](https://doc.rust-lang.org/cargo/commands/cargo-add.html).
+- Treat `Cargo.toml` as the authority for supported dependency requirements and the workspace's root `Cargo.lock` as its resolved selection, following [Cargo's manifest and lockfile guidance](https://doc.rust-lang.org/cargo/guide/cargo-toml-vs-cargo-lock.html). Link to the relevant manifest; `cargo metadata --locked` identifies resolved package versions and manifest paths. Use the resolved provider's manifest when checking installed tooling.
+- Describe required capabilities, APIs, and task names in prose. When a numeric minimum explains a compatibility boundary, keep it in one provider-owned guide with the reason and a link to the supporting release or API documentation. Other guides should refer to that source.
+- Keep explicit versions where they convey necessary information: migration instructions, historical release notes, minimum supported Rust versions, or reproducible examples tied to a particular release. Preserve historical references when newer releases appear.
+- Use manifest snippets when explaining dependency requirements or features, and validate them against the supported API. Choose ranges according to the package's compatibility policy. The open-ended minimum for private `socketry-project` tooling follows its setup guidance; runtime libraries use requirements appropriate to their supported APIs.
+- When a version must appear in several current documents, generate those references from authoritative metadata as part of the documentation tasks.
+
 ## Development and releases
 
 - Keep development tasks in a private `bake/` package. Depend on `socketry-project` there so task tooling does not become a runtime dependency of the published library.

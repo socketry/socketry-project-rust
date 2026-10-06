@@ -34,7 +34,7 @@ The check job installs the Bake launcher and runs `cargo:release:detect --base "
 
 After a merge to the configured branch, the `crates-io` environment gates the publish job. `cargo:publish:pending --version "$BAKE_VERSION"` checks which workspace packages still need publishing. GitHub OIDC authentication runs only when packages are pending. `cargo:release:publish --version "$BAKE_VERSION" --sha "$BAKE_SHA"` publishes the remaining packages, then creates and pushes the version tag and creates or updates the matching GitHub Release from `releases.md` using `cargo:releases:github:release`.
 
-These operations are Bake tasks; the workflow contains no inline Python release scripts. The task names in this workflow require `bake` 0.19.0 and `bake-cargo` 0.4.0 or newer in the resolved task binary, including its `Cargo.lock`. The version-bump hook also requires `bake-markdown` 0.3.0 or newer, which uses hyphen markers for unordered lists.
+These operations are Bake tasks. The supported task-provider requirements are declared in the resolved `socketry-project` package's `Cargo.toml`; the [source manifest](https://github.com/socketry/socketry-project-rust/blob/main/Cargo.toml) shows the current project's requirements. Use `cargo metadata --locked` to locate the resolved provider's manifest and confirm the versions used by the task binary. Update the workspace lockfile deliberately when adopting newer tooling, then regenerate task links with `cargo bake --regenerate`.
 
 After merging, check the workflow result, published package versions, version tag, and GitHub Release. If a publish workflow is still waiting for environment approval, obtain that approval through the configured reviewer process.
 
