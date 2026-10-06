@@ -677,7 +677,7 @@ dependencies = [
 
 [[package]]
 name = "socketry-project"
-version = "0.3.11"
+version = "0.3.12"
 dependencies = [
  "bake",
  "bake-agent-context",

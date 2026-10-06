@@ -39,6 +39,10 @@ Prepare a release with `cargo bake cargo:version:patch` (or `minor`, `major`, or
 
 See [releases.md](releases.md) for the full release history.
 
+### v0.3.12
+
+- Use named references between skills and agent context so guidance remains usable after installation.
+
 ### v0.3.11
 
 - Document how to maintain dependency versions in installation examples and compatibility guidance, using manifests and lockfiles as authoritative sources.
@@ -48,10 +52,6 @@ See [releases.md](releases.md) for the full release history.
 
 - Add independent adversarial review guidance, with local iteration until all non-trivial issues are resolved before opening a pull request.
 - Clarify that the private Bake package shares the workspace's root lockfile.
-
-### v0.3.9
-
-- Follow Rust acronym casing in type and trait names, using `HtmlRenderer`, `HttpClient`, `UrlParser`, and `FileIo`.
 
 <!-- bake-readme:releases:end -->
 

@@ -1,5 +1,9 @@
 # Releases
 
+## v0.3.12
+
+- Use named references between skills and agent context so guidance remains usable after installation.
+
 ## v0.3.11
 
 - Document how to maintain dependency versions in installation examples and compatibility guidance, using manifests and lockfiles as authoritative sources.

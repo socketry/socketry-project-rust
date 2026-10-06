@@ -37,6 +37,7 @@ Before introducing a new semantic, layout, or naming pattern, check how related 
 - Start `license.md` with `# MIT License`.
 - Keep `readme.md` human-focused: explain the project, its motivation when useful, how to use it, recent releases, and how to contribute. Follow the `Readme Structure` guide supplied by `bake-readme`.
 - Put reusable, package-specific agent guidance in `context/`; keep repository-only instructions and project-owned skills in `.agents/`. Treat the root `agents.md` as repository-owned guidance.
+- Refer to skills by their installed names and context guides by their package and title when crossing between skills and context. The installer places them in separate directories, so relative links between them do not survive installation. Keep Markdown links within context files installed together or to stable external documentation.
 - Avoid duplicating Rust-wide guidance from `bake-agent-context`; add project context for the architecture and decisions that are specific to the crate.
 - Follow the Agent Context section in `readme.md` to install and discover shared context and skills. The `bake-agent-context` guide explains the installer's behavior.
 
@@ -53,5 +54,5 @@ Before introducing a new semantic, layout, or naming pattern, check how related 
 
 - Keep development tasks in a private `bake/` package. Depend on `socketry-project` there so task tooling does not become a runtime dependency of the published library.
 - Use the `cargo:after_version_bump` hook registered by `socketry-project` to update `license.md`, `releases.md`, and the generated sections of `readme.md`, then normalize those files and all Markdown under the public `context/` directory.
-- Follow the [socketry-project-pull-requests skill](https://github.com/socketry/socketry-project-rust/blob/main/context/pull-requests.md), including independent adversarial review and local iteration until all non-trivial issues are resolved.
+- Follow the `socketry-project-pull-requests` skill, including independent adversarial review and local iteration until all non-trivial issues are resolved.
 - Follow the `socketry-project-releasing` skill to prepare and publish a release. It links to Bake Cargo task documentation for workflow setup, trusted publishing, reviewers, and tag creation.
