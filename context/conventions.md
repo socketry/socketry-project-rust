@@ -44,4 +44,5 @@ Before introducing a new semantic, layout, or naming pattern, check how related 
 
 - Keep development tasks in a private `bake/` package. Depend on `socketry-project` there so task tooling does not become a runtime dependency of the published library.
 - Use the `cargo:after_version_bump` hook registered by `socketry-project` to update `license.md`, `releases.md`, and the generated sections of `readme.md`, then normalize those files and all Markdown under the public `context/` directory.
+- Follow the [socketry-project-pull-requests skill](https://github.com/socketry/socketry-project-rust/blob/main/context/pull-requests.md), including independent adversarial review and local iteration until all non-trivial issues are resolved.
 - Follow the `socketry-project-releasing` skill to prepare and publish a release. It links to Bake Cargo task documentation for workflow setup, trusted publishing, reviewers, and tag creation.

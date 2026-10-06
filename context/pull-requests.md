@@ -7,6 +7,17 @@ description: Prepare commits and GitHub pull requests for Socketry Rust projects
 
 Use these conventions when preparing commits or pull requests for Socketry Rust projects.
 
+## Adversarial review
+
+When sub-agents are available, use a sub-agent that did not implement the change for an independent adversarial review before opening the pull request. Keep the reviewer focused on inspecting the changes and reporting findings.
+
+- Give the reviewer the user's intent, relevant repository guidance, the diff, and the exact commit to review.
+- Ask it to challenge assumptions and identify concrete correctness, compatibility, testing, and documentation gaps. Findings should explain the affected behavior and supporting evidence.
+- Evaluate each finding against the intended behavior. Fix substantive issues and run the relevant checks; explain with evidence when a concern does not apply.
+- Iterate locally through review and fixes until all non-trivial issues are resolved. Have the reviewer confirm the final commit before opening the pull request. If the changes are revised later, re-review the affected changes before merging.
+
+Scale the review to the change's complexity and risk. A small documentation change needs a focused check of clarity and factual accuracy; changes to public APIs or runtime behavior need deeper scrutiny of semantics and regressions. Complete the required tests and configured GitHub approvals alongside the adversarial review.
+
 ## Titles and commits
 
 - Pull request titles must use Markdown, be complete sentences, and end with a full stop.

@@ -39,6 +39,11 @@ Prepare a release with `cargo bake cargo:version:patch` (or `minor`, `major`, or
 
 See [releases.md](releases.md) for the full release history.
 
+### v0.3.10
+
+- Add independent adversarial review guidance, with local iteration until all non-trivial issues are resolved before opening a pull request.
+- Clarify that the private Bake package shares the workspace's root lockfile.
+
 ### v0.3.9
 
 - Follow Rust acronym casing in type and trait names, using `HtmlRenderer`, `HttpClient`, `UrlParser`, and `FileIo`.
@@ -47,11 +52,6 @@ See [releases.md](releases.md) for the full release history.
 
 - Let Cargo select setup dependency versions while retaining open-ended minimum requirements.
 - Require current agent-context and readme providers so installed guidance preserves repository instructions and shared conventions.
-
-### v0.3.7
-
-- Require a stable aggregate test and coverage result alongside publishing checks.
-- Clarify merge gates and repository-owned agent guidance in the shared conventions.
 
 <!-- bake-readme:releases:end -->
 
