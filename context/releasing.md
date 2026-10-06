@@ -22,7 +22,7 @@ cargo bake cargo:version:bump --version X.Y.Z
 
 Choose one version task. The `socketry-project` hook updates `license.md`, `releases.md`, and generated sections of `readme.md`, then normalizes those files and all Markdown under the public `context/` directory. Review the generated changes and ensure the release notes describe the actual changes.
 
-Run the project's required tests and coverage checks using the `socketry-project-testing` skill. Commit the version and release files, then run `cargo bake cargo:release` from the clean worktree. This validates and packages the release candidate; it does not publish or tag it. Follow the [adversarial review process](pull-requests.md#adversarial-review), iterating locally until all non-trivial issues are resolved, then open the pull request after validation and review succeed.
+Run the project's required tests and coverage checks using the `socketry-project-testing` skill. Commit the version and release files, then run `cargo bake cargo:release` from the clean worktree. This validates and packages the release candidate; it does not publish or tag it. Follow the [adversarial review process in the socketry-project-pull-requests skill](https://github.com/socketry/socketry-project-rust/blob/main/context/pull-requests.md#adversarial-review), iterating locally until all non-trivial issues are resolved, then open the pull request after validation and review succeed.
 
 ## Publish through GitHub Actions
 
