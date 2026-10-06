@@ -39,6 +39,10 @@ Prepare a release with `cargo bake cargo:version:patch` (or `minor`, `major`, or
 
 See [releases.md](releases.md) for the full release history.
 
+### v0.3.9
+
+- Follow Rust acronym casing in type and trait names, using `HtmlRenderer`, `HttpClient`, `UrlParser`, and `FileIo`.
+
 ### v0.3.8
 
 - Let Cargo select setup dependency versions while retaining open-ended minimum requirements.
@@ -48,12 +52,6 @@ See [releases.md](releases.md) for the full release history.
 
 - Require a stable aggregate test and coverage result alongside publishing checks.
 - Clarify merge gates and repository-owned agent guidance in the shared conventions.
-
-### v0.3.6
-
-- Normalize standard project Markdown files after version bumps.
-- Fix the version bump hook's invocation of the Markdown normalizer.
-- Include `bake-markdown` 0.3.0 in the shared task set so version bumps use hyphen markers for unordered lists.
 
 <!-- bake-readme:releases:end -->
 

@@ -1,5 +1,9 @@
 # Releases
 
+## v0.3.9
+
+- Follow Rust acronym casing in type and trait names, using `HtmlRenderer`, `HttpClient`, `UrlParser`, and `FileIo`.
+
 ## v0.3.8
 
 - Let Cargo select setup dependency versions while retaining open-ended minimum requirements.
