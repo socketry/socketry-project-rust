@@ -22,7 +22,7 @@ Keep public paths independent of redundant namespace layers such as `bake_agent_
 ## Source naming
 
 - Use `snake_case` for modules, source files, functions, methods, and variables. Use `UpperCamelCase` for structs, enums, traits, and type parameters.
-- Preserve established initialisms in type and trait names: write `HTMLRenderer`, `HTTPClient`, and `URLParser`, rather than `HtmlRenderer`, `HttpClient`, or `UrlParser`. Keep filenames lowercase `snake_case`, such as `html_renderer.rs`, `http_client.rs`, and `url_parser.rs`.
+- Treat acronyms and initialisms as single words in `UpperCamelCase`, following the [Rust API Guidelines](https://rust-lang.github.io/api-guidelines/naming.html#casing-conforms-to-rfc-430-c-case): write `HtmlRenderer`, `HttpClient`, `UrlParser`, and `FileIo`. Use lowercase acronyms in `snake_case`, including filenames such as `html_renderer.rs`, `http_client.rs`, and `file_io.rs`. This keeps Socketry's Rust APIs consistent with the Rust ecosystem; names required by external APIs retain their original spelling.
 - Make public type and trait names fully descriptive; include the kind of thing being named instead of relying on the module path to supply it. For example, use `io_stream::BufferedStream` rather than `io_stream::Buffered`.
 - Prefer clear, consistent names. Avoid abbreviations unless they are an established domain initialism or required by an external API.
 - Give each primary public struct, enum, or trait its own source file, named after the item using lowercase `snake_case`. Keep small, closely related helper types alongside it when that makes the code easier to understand.
