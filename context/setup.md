@@ -32,7 +32,7 @@ cargo add --manifest-path bake/Cargo.toml socketry-project
 
 In `bake/Cargo.toml`, prefix the version selected by Cargo with `>=` to make it an open-ended minimum. Keep that actual minimum in the manifest and the resolved version in `Cargo.lock`; the setup documentation does not need a copy of either version.
 
-The open-ended minimum requirement allows newer `socketry-project` releases. The private Bake package's `Cargo.lock` records the selected version, so update the lockfile deliberately when adopting a newer release.
+The open-ended minimum requirement allows newer `socketry-project` releases. The workspace's root `Cargo.lock` records the selected version for the private `bake/` package, so update that lockfile deliberately when adopting a newer release.
 
 Run regeneration again to link its task registrations:
 
