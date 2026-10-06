@@ -1,5 +1,9 @@
 # Releases
 
+## Unreleased
+
+- Clarify that the private Bake package shares the workspace's root lockfile.
+
 ## v0.3.9
 
 - Follow Rust acronym casing in type and trait names, using `HtmlRenderer`, `HttpClient`, `UrlParser`, and `FileIo`.
